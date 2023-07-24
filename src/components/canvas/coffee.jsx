@@ -35,7 +35,8 @@ export const CoffeeCanvas = () => {
         <directionalLight position={[0, 0, 0.05]} />
         <Suspense>
           <OrbitControls
-            
+            autoRotate={true}
+            autoRotateSpeed={9}
             enableZoom={false}
             maxPolarAngle={Math.PI / 3}
             minPolarAngle={Math.PI / 3}
