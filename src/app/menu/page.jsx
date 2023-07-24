@@ -13,6 +13,21 @@ import { fadeIn, textVariant } from "../../utils/motion";
 const Menu = () => {
   return (
     <>
+
+
+      <blockquote class="text-[40px] font-bold text-center text-gray-900 dark:text-white">
+        <p>Menu Kopi</p>
+      </blockquote>
+
+      <blockquote class="text-[20px] text-center text-gray-900 dark:text-white ">
+        <p>Penyajian Kopi di Kedai Kopi Launam menggunakan teknik Manual Brewing
+          Manual Brewing adalah cara menyeduh kopi secara manual tanpa menggunakan mesin espresso sama sekali. Teknik ini erat hubungannya dengan bubuk kopi yg sudah digiling,
+          filter atau penyaringan, serta air panas di tingkat temperatur tertentu</p>
+      </blockquote>
+
+
+
+
       <div className='mt-20 flex flex-wrap gap-7 pl-40'>
 
 

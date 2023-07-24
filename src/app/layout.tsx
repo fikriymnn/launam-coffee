@@ -1,7 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import Navbar from '../components/navbar'
+import Navbar from '../components/Navbar'
 import { StarsCanvas, Stars } from "../components/canvas/beans";
 import './script'
 
@@ -21,8 +21,11 @@ export default function RootLayout({
     <html lang="en">
 
       <body className={inter.className}>
+        <div>
+          <Navbar />
+        </div>
 
-        <Navbar />
+
 
 
         {children}</body>
