@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 
-import { CoffeeCanvas, Coffee } from "../../components/canvas/coffee";
+import { AmericanoCanvas, CoffeeAmericano } from "../../components/canvas/americano";
 import { StarsCanvas, Stars } from "../../components/canvas/beans";
 
 
@@ -24,7 +24,7 @@ const DetailMenu = () => {
 
             </div>
             <div className="w-full h-full md:w-1/2 ">
-              <CoffeeCanvas />
+              <AmericanoCanvas />
             </div>
           </div>
         </div>
