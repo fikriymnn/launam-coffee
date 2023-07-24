@@ -1,46 +1,54 @@
 "use client"
-import { useState, Suspense } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Points, useGLTF, PointMaterial, Preload } from "@react-three/drei";
-import * as random from "maath/random/dist/maath-random.esm";
+import React, { Suspense } from "react";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 
-// var geometry = new THREE.BoxGeometry();
-// var material1 = new THREE.MeshLambertMaterial();
-// var material2 = new THREE.MeshPhongMaterial();
 
-// var iMesh1 = new THREE.InstancedMesh(geometry, material1, 30);
-// var iMesh2 = new THREE.InstancedMesh(geometry, material2, 30);
-
-export const Stars = (props) => {
-  const ref = useGLTF ('./assets/beans.glb');
-  const [sphere] = useState(() => random.inSphere(new Float32Array(100), { radius: 1.2 }));
-
- 
-
-  return (
-    <group rotation={[0, 0, Math.PI / 4]}>
-     
-      {/* <Points ref={ref} positions={sphere} stride={3} frustumCulled {...props}> */}
-      <primitive object={ref.scene} positions={sphere} stride={3} frustumCulled {...props} scale={0.1} />
-      {/* </Points> */}
-    </group>
-  );
-};
-
+export const Stars = () => {
+    const stars = useGLTF ('./assets/cofee_beans.gltf');
+  
+    return (
+      <primitive object={stars.scene} scale={1} position-y={-2}/>
+    );
+  };
+  
 export const StarsCanvas = () => {
-  return (
-    <div className='w-full h-auto absolute inset-0 z-[-1]'>
-      <Canvas camera={{ position: [0, 0, 1] }}>
-      <ambientLight intensity={0.5} />
+    return (
+      
+      <Canvas
+        shadows
+        frameloop='demand'
+        
+        dpr={[1, 5]}
+        gl={{ preserveDrawingBuffer: true }}
+        
+        camera={{
+          fov: 45,
+          near: 0.1,
+          far: 200,
+          position: [20, 8, 12]
+        }}
+      >
+       
+        <ambientLight intensity={0.5} />
         <directionalLight position={[0, 0, 0.05]} />
-        <Suspense fallback={null}>
+        <Suspense>
+          <OrbitControls
+            autoRotate={true}
+            
+            autoRotateSpeed={2}
+            enableZoom={false}
+            maxPolarAngle={Math.PI / 3}
+            minPolarAngle={Math.PI / 3}
+          />
           <Stars />
+  
+          <Preload all />
         </Suspense>
-
-        <Preload all />
       </Canvas>
-    </div>
-  );
-};
-
+    );
+  };
+  
+ 
+  
