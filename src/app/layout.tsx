@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Navbar from '../components/navbar'
+import { StarsCanvas, Stars } from "../components/canvas/beans";
 import './script'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -18,11 +19,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+
       <body className={inter.className}>
-        <Navbar/>
+
+        <Navbar />
+
 
         {children}</body>
-        {/* <script src='./script.jsx'></script> */}
+      {/* <script src='./script.jsx'></script> */}
     </html>
   )
 }

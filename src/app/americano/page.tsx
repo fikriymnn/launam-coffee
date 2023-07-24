@@ -11,7 +11,7 @@ const DetailMenu = () => {
   return (
     <section>
 
-      <div className="bg-yellow-900">
+      <div >
         <StarsCanvas />
 
         <div className="h-screen py-20 text-indigo-100">
