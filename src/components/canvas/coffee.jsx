@@ -38,9 +38,10 @@ export const CoffeeCanvas = () => {
             autoRotate={true}
             autoRotateSpeed={9}
             enableZoom={false}
+            //rotate
             maxAzimuthAngle={Math.PI / 3}
             maxPolarAngle={Math.PI / 3}
-            // minPolarAngle={Math.PI / 3}
+            // minPolarAngle={Math.PI / 3}.
           />
           <Coffee />
   
