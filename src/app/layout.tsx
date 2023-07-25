@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import { StarsCanvas, Stars } from "../components/canvas/beans";
 import './script'
 
@@ -24,11 +25,9 @@ export default function RootLayout({
         <div>
           <Navbar />
         </div>
-
-
-
-
-        {children}</body>
+        {children}
+        
+        </body>
       {/* <script src='./script.jsx'></script> */}
     </html>
   )

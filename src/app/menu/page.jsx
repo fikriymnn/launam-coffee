@@ -8,22 +8,25 @@ import { VietdripCanvas, CoffeeViet } from "../../components/canvas/vietdrip";
 import { CoffeeCepukCanvas, CoffeeCepuk } from "../../components/canvas/coffee_cepuk";
 
 import { fadeIn, textVariant } from "../../utils/motion";
+import Footer from '@/components/Footer';
 
 
 const Menu = () => {
   return (
     <>
-
-
-      <blockquote class="text-[40px] font-bold text-center text-gray-900 dark:text-white">
+      <blockquote class="text-[40px] font-bold text-center text-gray-900 ">
         <p>Menu Kopi</p>
+        <hr className='w-2/5 mb-16 mt-6 bg-black m-auto item-center border-black'/>
       </blockquote>
 
-      <blockquote class="text-[20px] text-center text-gray-900 dark:text-white ">
-        <p>Penyajian Kopi di Kedai Kopi Launam menggunakan teknik Manual Brewing
+      <div class="text-[20px] text-center text-gray-900 flex mt-10">
+        <div className='w-5/6 m-auto'> 
+        <p className='text-center m-auto'>Penyajian Kopi di Kedai Kopi Launam menggunakan teknik Manual Brewing
           Manual Brewing adalah cara menyeduh kopi secara manual tanpa menggunakan mesin espresso sama sekali. Teknik ini erat hubungannya dengan bubuk kopi yg sudah digiling,
           filter atau penyaringan, serta air panas di tingkat temperatur tertentu</p>
-      </blockquote>
+        </div>
+        
+      </div>
 
 
 
@@ -100,8 +103,13 @@ const Menu = () => {
 
           </Tilt>
         </motion.div>
-
-      </div></>
+        
+      </div>
+      <br/>
+      <br/>
+      <br/>
+      <Footer/>
+      </>
 
 
   )
