@@ -25,9 +25,13 @@ export default function RootLayout({
         <div>
           <Navbar />
         </div>
+        <div className="z-0 flex h-screen w-screen fixed">
+          <StarsCanvas />
+        </div>
+
         {children}
-        
-        </body>
+
+      </body>
       {/* <script src='./script.jsx'></script> */}
     </html>
   )

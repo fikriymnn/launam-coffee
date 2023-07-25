@@ -6,7 +6,7 @@ import React from 'react'
 
 export default function Navbar() {
   return (
-    <nav className=" border-gray-200 bg-transparent">
+    <nav className=" border-gray-200 bg-transparent fixed">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a className="flex items-center">
           <img src="assets/logo1.png" className="h-14 mr-3" alt="Logo" />

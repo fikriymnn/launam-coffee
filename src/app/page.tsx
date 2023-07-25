@@ -9,7 +9,7 @@ import Footer from "../components/Footer";
 export default function home() {
   return (
 
-    <div className="h-screen py-20 text-indigo-100">
+    <div className="h-screen py-20 text-indigo-100 z-10 relative">
 
 
       <div className="h-full container mx-auto md:flex md:items-center md:justify-between">
@@ -21,7 +21,7 @@ export default function home() {
           <CoffeeCanvas />
         </div>
       </div>
-       
+
       <div className="h-full mx-auto grid grid-cols-2">
         <div className="col-auto"></div>
         <div className="w-full h-full mb-8 md:mb-0 mt-48 justify-center col-start-2">
@@ -40,7 +40,7 @@ export default function home() {
         </div>
       </div>
 
-      <Footer/>
+      <Footer />
     </div >
 
   )
