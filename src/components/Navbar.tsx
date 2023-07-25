@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 
@@ -6,10 +7,10 @@ import React from 'react'
 
 export default function Navbar() {
   return (
-    <nav className=" border-gray-200 bg-transparent fixed">
+    <nav className=" border-gray-200 bg-transparent">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a className="flex items-center">
-          <img src="assets/logo1.png" className="h-14 mr-3" alt="Logo" />
+          <Image src="/assets/logo1.png" width={50} height={50} className="mr-3" alt="Logo" />
 
         </a>
 
