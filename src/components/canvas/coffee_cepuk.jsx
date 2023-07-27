@@ -39,7 +39,7 @@ export const CoffeeCepukCanvas = () => {
                     autoRotateSpeed={9}
                     enableZoom={false}
                     maxPolarAngle={Math.PI / 3}
-                    minPolarAngle={Math.PI / 3}
+                    maxAzimuthAngle={Math.PI / 3}
                 />
                 <CoffeeCepuk />
 

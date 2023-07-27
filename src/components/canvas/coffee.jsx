@@ -19,7 +19,8 @@ export const CoffeeCanvas = () => {
       <Canvas
         shadows
         frameloop='demand'
-        
+        autoRotate={true}
+        autoRotateSpeed={9}
         dpr={[1, 5]}
         gl={{ preserveDrawingBuffer: true }}
         
@@ -35,11 +36,12 @@ export const CoffeeCanvas = () => {
         <directionalLight position={[0, 0, 0.05]} />
         <Suspense>
           <OrbitControls
-            autoRotate={true}
-            autoRotateSpeed={9}
+            
+            
             enableZoom={false}
             maxPolarAngle={Math.PI / 3}
-            minPolarAngle={Math.PI / 3}
+            maxAzimuthAngle={Math.PI / 3}
+            // minPolarAngle={Math.PI / 3}
           />
           <Coffee />
   

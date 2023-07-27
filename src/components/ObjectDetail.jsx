@@ -5,15 +5,16 @@ import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 
 
-export const CoffeeViet = () => {
-    const coffee = useGLTF('./assets/vietdrip.gltf');
+const Object = ({src}) => {
+    const coffee = useGLTF(src);
 
     return (
         <primitive object={coffee.scene} scale={5} position-y={-2} />
     );
 };
 
-export const VietdripCanvas = () => {
+export default function ObjectDetail ({src}) {
+    console.log(src)
     return (
 
         <Canvas
@@ -39,14 +40,12 @@ export const VietdripCanvas = () => {
                     autoRotateSpeed={9}
                     enableZoom={false}
                     maxPolarAngle={Math.PI / 3}
-                    maxAzimuthAngle={Math.PI / 3}
+                   maxAzimuthAngle={Math.PI / 3}
                 />
-                <CoffeeViet />
+                <Object src={src}/>
 
                 <Preload all />
             </Suspense>
         </Canvas>
     );
 };
-
-
