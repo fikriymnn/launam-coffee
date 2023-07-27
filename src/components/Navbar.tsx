@@ -20,10 +20,10 @@ export default function Navbar() {
               <a href="/" className="font-bold block py-2 pl-3 pr-4 text-gray-900 rounded bg-transparent md:border-0 md:hover:text-white md:p-0 dark:hover:text-white" >Home</a>
             </li>
             <li>
-              <a href="/events" className="font-bold block py-2 pl-3 pr-4 text-gray-900 rounded bg-transparent md:border-0 md:hover:text-white md:p-0  dark:hover:text-white" >Berita</a>
+              <a href="/promosi" className="font-bold block py-2 pl-3 pr-4 text-gray-900 rounded bg-transparent md:border-0 md:hover:text-white md:p-0  dark:hover:text-white" >Berita</a>
             </li>
             <li>
-              <a href="/menu" className="font-bold block py-2 pl-3 pr-4 text-gray-900 rounded bg-transparent md:border-0 md:p-0   dark:hover:text-white">Menu</a>
+              <a href="/menu" className="font-bold block py-2 pl-3 pr-4 text-gray-900 rounded bg-transparent md:border-0 md:p-0 md:hover:text-white   dark:hover:text-white">Menu</a>
             </li>
             <li>
               <a href="/about" className="font-bold block py-2 pl-3 pr-4 text-gray-900 rounded bg-transparent md:border-0 md:p-0  hover:text-white">Tentang Kami</a>
