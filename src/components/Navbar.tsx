@@ -7,7 +7,7 @@ import React from 'react'
 
 export default function Navbar() {
   return (
-    <nav className=" border-gray-200 bg-transparent">
+    <nav className=" border-gray-200 bg-transparent relative top-0 z-50">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a className="flex items-center">
           <Image src="/assets/logo1.png" width={50} height={50} className="mr-3" alt="Logo" />
