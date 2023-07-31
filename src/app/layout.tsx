@@ -22,17 +22,15 @@ export default function RootLayout({
     <html lang="en">
 
       <body className={inter.className}>
-        <div className='relative z-30'>
-          <Navbar />
-        </div>
+
         <div className="z-0 flex h-screen w-screen fixed top-0">
           <StarsCanvas />
         </div>
-         <div className='relative'>
-         {children}
-         </div>
-         
-       
+        <div className='relative top-0 z-10 '>
+          {children}
+        </div>
+
+
 
       </body>
       {/* <script src='./script.jsx'></script> */}
