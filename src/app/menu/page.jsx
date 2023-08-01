@@ -21,12 +21,12 @@ const Menu = () => {
   return (
     <>
       <Navbar />
-      <blockquote class="text-[40px] font-bold text-center text-gray-900 ">
+      <blockquote class="text-[40px] font-bold text-center text-[#FFC26F] ">
         <p>Menu Kopi</p>
-        <hr className="w-2/5 mb-16 mt-6 bg-black m-auto h-1 item-center border-black" />
+        <hr className="w-2/5 mb-16 mt-6 bg-white m-auto h-1 item-center border-white" />
       </blockquote>
 
-      <div class="text-[20px] text-center text-[#3C2A21] font-bold flex mt-10">
+      <div class="text-[20px] text-center text-[#FFC26F] font-bold flex mt-10">
         <div className="w-5/6 m-auto">
           <p className="text-center m-auto">
             Penyajian Kopi di Kedai Kopi Launam menggunakan teknik Manual
@@ -49,18 +49,18 @@ const Menu = () => {
             className="p-5 h-92 rounded-2xl sm:w-[360px] w-full bg-[#3C2A21]"
           >
             <div className="">
-              <h3 className="text-[#ffdcd2] font-bold text-[24px]">
+              <h3 className="text-white font-bold text-[24px]">
                 Americano
               </h3>
             </div>
             <div className="mt-5"></div>
-            <div className="bg-[#ffdcd2] w-full mb-5 rounded-lg pt-5 h-56">
+            <div className="bg-[#d6a764] w-full mb-5 rounded-lg pt-5 h-56">
               <AmericanoCanvas />
             </div>
 
             <a
               href="/americano"
-              class="text-black dark:border-gray-600 bg-white hover:bg-gray-200 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 "
+              class="text-[#884A39] dark:border-gray-600 bg-white hover:bg-gray-200 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 "
             >
               Detail
             </a>
@@ -74,26 +74,27 @@ const Menu = () => {
               scale: 1,
               speed: 450,
             }}
-            className="p-5 rounded-2xl sm:w-[360px] w-full bg-[#3C2A21]"
+            className="p-5 h-92 rounded-2xl sm:w-[360px] w-full bg-[#3C2A21]"
           >
             <div className="">
-              <h3 className="text-[#ffdcd2] font-bold text-[24px]">
-                Es Kopi Cepuk
+              <h3 className="text-white font-bold text-[24px]">
+              Es Kopi Cepuk
               </h3>
             </div>
             <div className="mt-5"></div>
-            <div className="bg-[#ffdcd2] w-full mb-5 rounded-lg pt-5">
-              <CoffeeCepukCanvas />
+            <div className="bg-[#d6a764] w-full mb-5 rounded-lg pt-5 h-56">
+            <CoffeeCepukCanvas />
             </div>
 
             <a
               href="/coffee_cepuk"
-              class="text-black dark:border-gray-600 bg-white hover:bg-gray-200 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              class="text-[#884A39] dark:border-gray-600 bg-white hover:bg-gray-200 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 "
             >
               Detail
             </a>
           </Tilt>
         </motion.div>
+
         <motion.div>
           <Tilt
             options={{
@@ -101,26 +102,29 @@ const Menu = () => {
               scale: 1,
               speed: 450,
             }}
-            className="p-5 rounded-2xl sm:w-[360px] w-full bg-[#3C2A21]"
+            className="p-5 h-92 rounded-2xl sm:w-[360px] w-full bg-[#3C2A21]"
           >
             <div className="">
-              <h3 className="text-[#ffdcd2] font-bold text-[24px]">
-                Vietnam Drip
+              <h3 className="text-white font-bold text-[24px]">
+              Vietnam Drip
               </h3>
             </div>
             <div className="mt-5"></div>
-            <div className="bg-[#ffdcd2] w-full mb-5 rounded-lg pt-5">
-              <VietdripCanvas />
+            <div className="bg-[#d6a764] w-full mb-5 rounded-lg pt-5 h-56">
+            <VietdripCanvas />
             </div>
 
             <a
               href="/vietdrip"
-              class="text-black dark:border-gray-600 bg-white hover:bg-gray-200 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              class="text-[#884A39] dark:border-gray-600 bg-white hover:bg-gray-200 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 "
             >
               Detail
             </a>
           </Tilt>
         </motion.div>
+
+       
+       
       </div>
       <br />
       <br />
