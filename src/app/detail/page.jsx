@@ -17,10 +17,10 @@ const DetailMenu = ({ searchParams }) => {
           <div className="h-screen text-indigo-100">
             <div className="h-full container mx-auto md:flex md:items-center md:justify-between m">
               <div className="w-full h-full md:w-1/2 mb-8 md:mb-0 mr-10 ml-40  justify-center">
-                <h2 className="text-5xl font-bold text-black">
+                <h2 className="text-5xl font-bold text-[#FFC26F]">
                   {searchParams.nama}
                 </h2>
-                <p className="text-base mt-5 text-black">
+                <p className="text-base mt-5 text-[#FFC26F]">
                   {searchParams.detail}
                 </p>
               </div>

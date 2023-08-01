@@ -7,9 +7,9 @@ const About = () => {
   return (
     <>
       <Navbar />
-      <blockquote class="text-[40px] font-bold text-center text-gray-900 ">
+      <blockquote class="text-[40px] font-bold text-center text-[#FFC26F] ">
         <p>Tentang Kami</p>
-        <hr className="h-1 w-2/5 mb-16 mt-6 bg-black m-auto item-center border-black" />
+        <hr className="h-1 w-2/5 mb-16 mt-6 bg-white m-auto item-center border-white" />
       </blockquote>
 
       <div className="grid grid-cols-2 items-center justify-items-center mb-36">
@@ -21,10 +21,10 @@ const About = () => {
           alt=""
         />
         <div>
-          <h1 className="text-center text-gray-900 text-2xl font-bold">
+          <h1 className="text-center text-[#FFC26F] text-2xl font-bold">
             Kedai Kopi Launam
           </h1>
-          <p className="text-center text-gray-900 mt-8 px-10 text-xl">
+          <p className="text-center text-[#FFC26F] mt-8 px-10 text-xl">
             Kedai Kopi Launam merupakan kedai kopi yang menyediakan jenis kopi
             arabika dan robusta. Didirikan pada tahun 2019 oleh Bapak Kukuh Heri
             Supriyadi yang berlokasi di Jalan Haji Alpi, Kota Bandung. Kedai ini
