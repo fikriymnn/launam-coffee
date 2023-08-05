@@ -11,6 +11,7 @@ import { AmericanoCanvas } from '@/components/canvas/americano';
 import CardPromo from '@/components/CardPromo';
 import { CoffeeCepukCanvas, CoffeeCepuk } from "@/components/canvas/coffee_cepuk";
 import Navbar from '@/components/Navbar';
+import CardCofee from '@/components/CardCoffe'
 
 
 export default function home() {
@@ -43,82 +44,9 @@ export default function home() {
             <p className='text-3xl text-[#FFC26F]'>Menu andalan kami di Launam Coffee.</p>
           </div>
           <div className='flex justify-evenly'>
-            <motion.div>
-              <Tilt
-                options={{
-                  max: 45,
-                  scale: 1,
-                  speed: 450,
-                }}
-                className='p-5 h-92 rounded-2xl sm:w-[360px] w-full bg-[#3C2A21]'
-              >
-                <div className=''>
-                  <h3 className='text-white font-bold text-[24px]'>Es Kopi Cepuk</h3>
-                </div>
-                <div className='mt-5'>
-
-                </div>
-                <div className='bg-[#d6a764] w-full mb-5 rounded-lg pt-5 h-56'>
-                  <CoffeeCepukCanvas />
-                </div>
-
-                <a href="/americano" className="text-[#884A39] dark:border-gray-600 bg-white hover:bg-gray-200 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 ">Detail</a>
-
-
-
-              </Tilt>
-
-            </motion.div>
-            <motion.div>
-              <Tilt
-                options={{
-                  max: 45,
-                  scale: 1,
-                  speed: 450,
-                }}
-                className='p-5 h-92 rounded-2xl sm:w-[360px] w-full bg-[#3C2A21]'
-              >
-                <div className=''>
-                  <h3 className='text-white font-bold text-[24px]'>Americano</h3>
-                </div>
-                <div className='mt-5'>
-
-                </div>
-                <div className='bg-[#d6a764] w-full mb-5 rounded-lg pt-5 h-56'>
-                  <AmericanoCanvas />
-                </div>
-
-                <a href="/americano" className="text-[#884A39] dark:border-gray-600 bg-white hover:bg-gray-200 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 ">Detail</a>
-
-
-
-              </Tilt>
-            </motion.div>
-            <motion.div>
-              <Tilt
-                options={{
-                  max: 45,
-                  scale: 1,
-                  speed: 450,
-                }}
-                className='p-5 h-92 rounded-2xl sm:w-[360px] w-full bg-[#3C2A21]'
-              >
-                <div className=''>
-                  <h3 className='text-white font-bold text-[24px]'>Vietnam Drip</h3>
-                </div>
-                <div className='mt-5'>
-
-                </div>
-                <div className='bg-[#d6a764] w-full mb-5 rounded-lg pt-5 h-56'>
-                  <VietdripCanvas />
-                </div>
-
-                <a href="/americano" className="text-[#884A39] dark:border-gray-600 bg-white hover:bg-gray-200 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 ">Detail</a>
-
-
-
-              </Tilt>
-            </motion.div>
+          <CardCofee obj={'/assets/botolkopi.gltf'} nama={'Americano'} detail={'asdkasd asdasdas sadasde rgretger grergd sdfsdfsdf'} harga={'Rp.30000'}/>
+          <CardCofee obj={'/assets/botolkopi.gltf'} nama={'Americano'} detail={'asdkasd asdasdas sadasde rgretger grergd sdfsdfsdf'} harga={'Rp.30000'}/>
+           <CardCofee obj={'/assets/botolkopi.gltf'} nama={'Americano'} detail={'asdkasd asdasdas sadasde rgretger grergd sdfsdfsdf'} harga={'Rp.30000'}/>
           </div>
         </div>
         <div>

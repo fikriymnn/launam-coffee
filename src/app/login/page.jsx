@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Footer from "@/components/Footer";
 
 export default function Admin() {
   const { push } = useRouter();
@@ -19,11 +20,10 @@ export default function Admin() {
   };
   return (
     <>
-      <h1 className="text-6xl font-bold text-center mt-24 mb-24 text-[#3C2A21]">
-        Login
-      </h1>
+      
       <div className="bg-[#3C2A21] w-[500px] mx-auto rounded-xl">
         <div className="p-20">
+        <h1 className="text-center text-3xl text-white pt-10 font-bold">Tambah Produk</h1>
           <form onSubmit={onSubmit}>
             <div>
               <label for="username">Username :</label>
@@ -53,6 +53,7 @@ export default function Admin() {
           </form>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

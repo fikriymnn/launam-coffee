@@ -11,7 +11,7 @@ const Object = ({ src }) => {
   return <primitive object={coffee.scene} scale={5} position-y={-2} />;
 };
 
-export default function CardCoffee({ src }) {
+export default function CardCoffee({ obj,nama,harga,detail }) {
   return (
     <>
       <motion.div>
@@ -27,7 +27,7 @@ export default function CardCoffee({ src }) {
             <h3 className="text-[#ffdcd2] font-bold text-[24px]">Americano</h3>
           </div>
           <div className="mt-5"></div>
-          <div className="bg-[#ffdcd2] w-full mb-5 rounded-lg pt-5 h-56">
+          <div className="bg-[#d6a764] w-full mb-5 rounded-lg pt-5 h-56">
             <Canvas
               shadows
               frameloop="demand"
@@ -50,18 +50,21 @@ export default function CardCoffee({ src }) {
                   maxPolarAngle={Math.PI / 3}
                   maxAzimuthAngle={Math.PI / 3}
                 />
-                <Object src={src} />
+                <Object src={obj} />
                 <Preload all />
               </Suspense>
             </Canvas>
           </div>
+         
+          <div className="grid grid-cols-3">
+          <p className="text-white my-5 font-bold">
+           {harga}
+          </p>
+          <div></div>
+          <a  href={`/detail?obj=${obj}&nama=${nama}&detail=${detail}&harga=${harga}`} className="text-[#884A39] font-medium rounded-lg text-sm m-auto px-5 py-2 bg-white hover:bg-slate-400 ">Detail</a>
 
-          <a
-            href="/americano"
-            class="text-black dark:border-gray-600 bg-white hover:bg-gray-200 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 "
-          >
-            Detail
-          </a>
+          </div>
+         
         </Tilt>
       </motion.div>
     </>

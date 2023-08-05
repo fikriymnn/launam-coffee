@@ -3,7 +3,7 @@ import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
 import Link from 'next/link'
 
-export default function promosi() {
+export default function promosi({searchParams}) {
     return (
         <>
             <Navbar />
@@ -13,7 +13,7 @@ export default function promosi() {
             </blockquote>
             <div className='grid grid-cols-3 justify-items-center'>
                 <Link href="/detailPromo1">
-                <CardPromo src={'/assets/promo.jpg'} text={"Potongztan 50% Natal #murahBanget"} />
+                <CardPromo src={'/assets/promo.jpg'} text={searchParams.judul} />
                 </Link>
                <Link href={'/detailPromo2'}>
                <CardPromo src={'/assets/promo2.jpg'} text={"Cuci gudang abis abisan promo Ramadhan buy 1 get 1"} />
