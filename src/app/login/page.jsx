@@ -2,37 +2,51 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Footer from "@/components/Footer";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../../lib/firebase/page"
+
+
 
 export default function Admin() {
   const { push } = useRouter();
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const onSubmit = (e) => {
+    signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
+      console.log(userCredential.user);
+      push("/produkAdmin")
+    }).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert(errorMessage);
+      console.log(errorCode)
+    });
     e.preventDefault();
     console.log("onSubmit");
-    console.log(username);
+    console.log(email);
     console.log(password);
 
-    push("/menu");
+    // push("/menu");
+
   };
   return (
     <>
-      
+      <h1 className="text-6xl font-bold text-center mt-24 mb-24 text-[#3C2A21]">
+        Login
+      </h1>
       <div className="bg-[#3C2A21] w-[500px] mx-auto rounded-xl">
         <div className="p-20">
-        <h1 className="text-center text-3xl text-white pt-10 font-bold">Tambah Produk</h1>
           <form onSubmit={onSubmit}>
             <div>
-              <label for="username">Username :</label>
+              <label for="email">email :</label>
               <input
-                id="username"
-                name="username"
+                id="email"
+                name="email"
                 type="text"
                 className="text-black my-5"
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div>
@@ -53,7 +67,6 @@ export default function Admin() {
           </form>
         </div>
       </div>
-      <Footer/>
     </>
   );
 }
