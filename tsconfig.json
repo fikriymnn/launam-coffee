@@ -36,7 +36,9 @@
     ".next/types/**/*.ts",
     "src/app/layout.jsx",
     "src/app/page.jsx",
-    "src/app/tambahProduk/page.tsx"
+    "src/app/tambahProduk/page.tsx",
+    "src/app/editProduk/page.jsx",
+    "src/app/produkAdmin/page.jsx"
   ],
   "exclude": [
     "node_modules"

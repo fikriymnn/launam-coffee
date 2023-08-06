@@ -7,16 +7,28 @@ import Footer from "@/components/Footer";
 import { collection, addDoc, getDocs, where, query, deleteDoc, updateDoc, doc, Firestore, } from "firebase/firestore";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { db, storage } from '../../../lib/firebase/page'
+import { useSearchParams } from 'next/navigation'
 
 
 import React from 'react'
 
 
 
-export default function TambahProduk() {
-  const [nama, setNama] = useState('');
-  const [harga, setHarga] = useState('');
-  const [detail, setDetail] = useState('');
+
+
+
+
+export default function EditProduk() {
+  const searchParams = useSearchParams()
+
+  const namaa = searchParams.get('nama')
+  const hargaa = searchParams.get('harga')
+  const detaill = searchParams.get('detail')
+  const id = searchParams.get('id')
+
+  const [nama, setNama] = useState(namaa);
+  const [harga, setHarga] = useState(hargaa);
+  const [detail, setDetail] = useState(detaill);
 
 
   const [imageFile, setImageFile] = useState<File>();
@@ -33,40 +45,31 @@ export default function TambahProduk() {
     }
   }
 
-  // const onSubmit = () => {
+  const makeAsCompleteHander = async () => {
 
-  //   // const name = imageFile.name
-  //   // const storageRef = ref(storage, `image/${name}`)
-  //   // const uploadTask = uploadBytesResumable(storageRef, imageFile)
+    try {
+      if (id) {
+        const todoRef = doc(db, "produk", id);
 
-  //   // uploadTask.on(
-  //   //   'state_changed',
-  //   //   (snapshot) => {
-  //   //     const progress =
-  //   //       (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-  //   //     console.log(progress)
-  //   //   },
-  //   //   (error) => {
-  //   //     alert(error.message)
-  //   //   },
-  //   //   () => {
-  //   //     console.log("success"),
-  //   //       getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-  //   //         //url is download url of file
-  //   //         setDownloadURL(url)
-  //   //       })
-  //   //   },
-  //   // )
-  //   addDoc(collection(db, "produk"), {
-  //     namaProd: nama,
-  //     harga: harga,
-  //     detail: detail,
-  //     assets: downloadURL
+        // Update the "completed" field of the todo document to the value of the "checked" property of the event target.
+        await updateDoc(todoRef, {
+          namaProd: nama,
+          harga: harga,
+          detail: detail,
+          assets: downloadURL
+        });
+      } else {
+        alert("error")
+      }
+      // Get a reference to the todo document with the given ID in the "todos" collection in Firestore.
 
-  //   })
 
-  // }
+      // After updating the todo, fetch all todos for the current user and update the state with the new data.
 
+    } catch (error) {
+      console.error("An error occured", error);
+    }
+  };
 
   const addData = async () => {
     // try {

@@ -9,9 +9,38 @@ import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
 
 import CardCoffeeAdmin from "@/components/CardCoffeAdmin";
+import { collection, addDoc, getDocs, where, query, deleteDoc, updateDoc, doc, Firestore, } from "firebase/firestore";
+import { db, storage } from '../../../lib/firebase/page'
 import Link from "next/link";
+import { useEffect, useState, } from "react";
 
 export default function Promo() {
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+
+    getData
+
+
+  })
+
+  const getData = async () => {
+    try {
+      const querySnapshot = await getDocs(collection(db, "produk"));
+      let data = [];
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+        data.push({ ...doc.data(), id: doc.id })
+      });
+      setData(data)
+    } catch (error) {
+      alert(error)
+    }
+
+  }
+
+
   return (
     <div className="h-screen">
       <NavbarAdmin />
@@ -25,14 +54,24 @@ export default function Promo() {
         </div>
       </div>
 
+      <button onClick={getData} className="bg-neutral-400 px-4 py-2 rounded-lg mx-auto mt-6 hover:bg-neutral-600"  >
+        Produk
+      </button>
+
+
+
 
       <div className="grid grid-cols-3 justify-items-center gap-10">
-        <CardCoffeeAdmin src={"./assets/botolkopi.gltf"} />
-        <CardCoffeeAdmin src={"./assets/botolkopi.gltf"} />
+        {data.length > 0 && data.map((data) => (
+          <CardCoffeeAdmin src={"./assets/botolkopi.gltf"} name={data.namaProd} id={data.id} />
+
+        ))}
+
+        {/* <CardCoffeeAdmin src={"./assets/botolkopi.gltf"} />
         <CardCoffeeAdmin src={"./assets/botolkopi.gltf"} />
         <CardCoffeeAdmin src={"./assets/botolkopi.gltf"} />
         <CardCoffeeAdmin src={"./assets/americano.gltf"} />
-        <CardCoffeeAdmin src={"./assets/botolkopi.gltf"} />
+        <CardCoffeeAdmin src={"./assets/botolkopi.gltf"} /> */}
       </div>
       <Footer />
     </div>
