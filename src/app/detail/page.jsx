@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import ObjectDetail from "@/components/ObjectDetail";
 import {
@@ -28,7 +29,7 @@ const DetailMenu = ({ searchParams }) => {
                 </p>
               </div>
               <div className="w-full h-full md:w-1/2 ">
-                <ObjectDetail src={`${searchParams.obj}`} />
+                <ObjectDetail src={searchParams.obj} />
               </div>
             </div>
           </div>

@@ -55,9 +55,9 @@ export default function home() {
             <p className='text-3xl text-[#FFC26F]'>Berbagai promo di Launam Coffee.</p>
           </div>
           <div className='flex justify-evenly'>
-            <CardPromo src={'/assets/promo.jpg'} text={"Potongztan 50% Akhir Tahun #murahBanget"} />
-            <CardPromo src={'/assets/promo2.jpg'} text={"Cuci gudang abis abisan promo Ramadhan buy 1 get 1"} />
-            <CardPromo src={'/assets/promo3.jpg'} text={"Potonngtan 50% Akhir Tahun>"} />
+            <CardPromo src={'/assets/promo.jpg'} text={"Potongztan 50% Akhir Tahun #murahBanget" }detail={"cdscscc"} />
+            <CardPromo src={'/assets/promo2.jpg'} text={"Cuci gudang abis abisan promo Ramadhan buy 1 get 1"}detail={"cdscscc"} />
+            <CardPromo src={'/assets/promo3.jpg'} text={"Potonngtan 50% Akhir Tahun>"}detail={"cdscscc"} />
           </div>
         </div>
         <div className="h-9/12 container mx-auto md:flex md:items-center md:justify-between">

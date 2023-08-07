@@ -14,20 +14,22 @@ import { db, storage } from '../../../lib/firebase/page'
 import Link from "next/link";
 import { useEffect, useState, } from "react";
 
-export default function Promo() {
+
+export default function ProdukAdmin() {
   const [data, setData] = useState([])
 
   useEffect(() => {
+    
 
-    getData
+    getData()
 
 
-  })
-
+  },[data.length])
   const getData = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, "produk"));
       let data = [];
+      console.log(querySnapshot)
       querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
         console.log(doc.id, " => ", doc.data());
@@ -39,6 +41,7 @@ export default function Promo() {
     }
 
   }
+  
 
 
   return (
@@ -54,18 +57,15 @@ export default function Promo() {
         </div>
       </div>
 
-      <button onClick={getData} className="bg-neutral-400 px-4 py-2 rounded-lg mx-auto mt-6 hover:bg-neutral-600"  >
-        Produk
-      </button>
-
-
 
 
       <div className="grid grid-cols-3 justify-items-center gap-10">
-        {data.length > 0 && data.map((data) => (
-          <CardCoffeeAdmin src={"./assets/botolkopi.gltf"} name={data.namaProd} id={data.id} />
-
-        ))}
+        {data.length > 0 && data.map((data,i) => {
+         
+          // eslint-disable-next-line react/jsx-key
+         return( <CardCoffeeAdmin src={data.assets} name={data.namaProd} id={data.id} harga={data.harga} deskripsi={data.detail} key={i}/>
+         )
+})}
 
         {/* <CardCoffeeAdmin src={"./assets/botolkopi.gltf"} />
         <CardCoffeeAdmin src={"./assets/botolkopi.gltf"} />
@@ -73,6 +73,7 @@ export default function Promo() {
         <CardCoffeeAdmin src={"./assets/americano.gltf"} />
         <CardCoffeeAdmin src={"./assets/botolkopi.gltf"} /> */}
       </div>
+      <div className="h-6/12"></div>
       <Footer />
     </div>
   );

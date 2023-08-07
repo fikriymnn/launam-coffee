@@ -13,9 +13,8 @@ import React from 'react'
 
 
 
-export default function TambahProduk() {
-  const [nama, setNama] = useState('');
-  const [harga, setHarga] = useState('');
+export default function TambahPromo() {
+  const [text, setText] = useState('');
   const [detail, setDetail] = useState('');
   const [loading,setLoading]=useState(false)
 
@@ -37,7 +36,7 @@ export default function TambahProduk() {
         if (files) {
           setLoading(true)
           const name = files[0].name
-          const storageRef = ref(storage, `assets/${name}`)
+          const storageRef = ref(storage, `promo/${name}`)
           const uploadTask = uploadBytesResumable(storageRef, files[0])
   
           uploadTask.on(
@@ -80,47 +79,14 @@ export default function TambahProduk() {
     }
   }
 
-  // const onSubmit = () => {
-
-  //   // const name = imageFile.name
-  //   // const storageRef = ref(storage, `image/${name}`)
-  //   // const uploadTask = uploadBytesResumable(storageRef, imageFile)
-
-  //   // uploadTask.on(
-  //   //   'state_changed',
-  //   //   (snapshot) => {
-  //   //     const progress =
-  //   //       (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-  //   //     console.log(progress)
-  //   //   },
-  //   //   (error) => {
-  //   //     alert(error.message)
-  //   //   },
-  //   //   () => {
-  //   //     console.log("success"),
-  //   //       getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-  //   //         //url is download url of file
-  //   //         setDownloadURL(url)
-  //   //       })
-  //   //   },
-  //   // )
-  //   addDoc(collection(db, "produk"), {
-  //     namaProd: nama,
-  //     harga: harga,
-  //     detail: detail,
-  //     assets: downloadURL
-
-  //   })
-
-  // }
+ 
 
 
   const addData = async (e:any) => {
    
     e.preventDefault()
-    const docRef = await addDoc(collection(db, "produk"), {
-      namaProd: nama,
-      harga: harga,
+    const docRef = await addDoc(collection(db, "promo"), {
+      text: text,
       detail: detail,
       assets: downloadURL
     })
@@ -133,48 +99,36 @@ export default function TambahProduk() {
     <>
       <NavbarAdmin />
       <div className="bg-[#3C2A21] w-[500px] mx-auto rounded-xl">
-        <h1 className="text-center text-3xl text-white pt-10 font-bold">Tambah Produk</h1>
+        <h1 className="text-center text-3xl text-white pt-10 font-bold">Tambah Promo</h1>
         <div className="p-20">
           <form onSubmit={(e)=>addData(e)} encType="multipart/form-data">
             <div>
-              <label htmlFor="username">Nama Produk : </label>
+              <label htmlFor="username">Nama Promo : </label>
               <br />
               <input
                 required
-                placeholder="masukan nama produk..."
+                placeholder="masukan nama promo..."
                 id="username"
                 name="username"
                 type="text"
                 className="text-black my-5"
-                onChange={(e) => setNama(e.target.value)}
+                onChange={(e) => setText(e.target.value)}
               />
             </div>
-            <div>
-              <label htmlFor="harga">Harga :</label>
-              <br />
-              <input
-                required
-                placeholder="masukan harga produk..."
-                id="harga"
-                name="harga"
-                type="text"
-                className="text-black my-5"
-                onChange={(e) => setHarga(e.target.value)}
-              />
-            </div>
+           
             <label htmlFor="w3review">Detail :</label>
             <br />
             <textarea required placeholder="masukan detail..." className="text-black my-5 w-64" id="w3review" name="w3review" onChange={(e) => { setDetail(e.target.value) }}></textarea>
             <br />
-            <label htmlFor="file">File 3D :</label>
+            <label htmlFor="file">Image :</label>
             <br />
             <br />
-            <p className="text-xs text-yellow-200 mb-2">*Tunggu input file 3D selesai sebelum submit</p>
+            <p className="text-xs text-yellow-200 mb-2">*Tunggu input file selesai sebelum submit</p>
             {loading&&<Loading/>}
             <input id="file" name="file" type="file" required onChange={(files) => handleSelectedFile(files.target)} />
             <div className="flex items-center mt-3">
               <button type="submit"  className="bg-neutral-400 px-4 py-2 rounded-lg mx-auto mt-6 hover:bg-neutral-600"  >
-                Tambah Produk
+                Tambah Promo
               </button>
             </div>
           </form>

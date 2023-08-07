@@ -6,6 +6,9 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import { collection, addDoc, getDocs, where, query, deleteDoc, updateDoc, doc, Firestore, } from "firebase/firestore";
 import { db, storage } from '../../lib/firebase/page'
+import { useRouter } from "next/navigation";
+
+
 
 const Object = ({ src }) => {
   const coffee = useGLTF(src);
@@ -14,12 +17,15 @@ const Object = ({ src }) => {
 };
 
 export default function CardCoffeeAdmin({ src, name, harga, deskripsi, id }) {
-
+  const router = useRouter();
   const deleteProd = async () => {
     try {
       // Delete the todo document with the given ID from the "todos" collection in Firestore.
       await deleteDoc(doc(db, "produk", id));
+      alert("delete success")
+      location.reload();
       console.log("Deleted successfully");
+      
 
 
     } catch (error) {
@@ -66,13 +72,14 @@ export default function CardCoffeeAdmin({ src, name, harga, deskripsi, id }) {
                   maxAzimuthAngle={Math.PI / 3}
                 />
                 <Object src={src} />
+                
                 <Preload all />
               </Suspense>
             </Canvas>
           </div>
 
           <a
-            href="/editProduk"
+            href={`/editProduk?id=${id}&nama=${name}&detail=${deskripsi}&harga=${harga}`}
             class="text-black dark:border-gray-600 bg-white hover:bg-gray-200 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 "
           >
             Edit

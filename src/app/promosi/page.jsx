@@ -1,9 +1,39 @@
+"use client"
 import CardPromo from '@/components/CardPromo'
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
 import Link from 'next/link'
+import { collection, addDoc, getDocs, where, query, deleteDoc, updateDoc, doc, Firestore, } from "firebase/firestore";
+import { db, storage } from '../../../lib/firebase/page'
+import { useEffect, useState, } from "react";
 
-export default function promosi({searchParams}) {
+export default function Promosi({searchParams}) {
+    const [data, setData] = useState([])
+
+    useEffect(() => {
+      
+  
+      getData()
+  
+  
+    },[data.length])
+    const getData = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "promo"));
+        let data = [];
+        console.log(querySnapshot)
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          console.log(doc.id, " => ", doc.data());
+          data.push({ ...doc.data(), id: doc.id })
+        });
+        setData(data)
+      } catch (error) {
+        alert(error)
+      }
+  
+    }
+   
     return (
         <>
             <Navbar />
@@ -12,15 +42,13 @@ export default function promosi({searchParams}) {
                 <hr className='h-1 w-2/5 mb-16 mt-6 bg-white m-auto item-center border-white' />
             </blockquote>
             <div className='grid grid-cols-3 justify-items-center'>
-                <Link href="/detailPromo1">
-                <CardPromo src={'/assets/promo.jpg'} text={searchParams.judul} />
-                </Link>
-               <Link href={'/detailPromo2'}>
-               <CardPromo src={'/assets/promo2.jpg'} text={"Cuci gudang abis abisan promo Ramadhan buy 1 get 1"} />
-               </Link>
-                <Link href={'/detailPromo3'}>
-                <CardPromo src={'/assets/promo3.jpg'} text={"Potonngtan 50% Akhir Tahun>"} />
-                </Link>
+                {data.map((v,i)=>{
+                    return(
+                        <CardPromo src={v.assets} text={v.text} detail={v.detail} key={i}/>
+                    )
+                })}
+                
+               
             </div>
             <Footer />
         </>
