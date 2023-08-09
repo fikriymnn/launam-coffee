@@ -50,12 +50,12 @@ export default function Menu() {
   return (
     <>
       <Navbar />
-      <blockquote class="text-[40px] font-bold text-center text-[#FFC26F] ">
+      <blockquote class="md:text-[40px] sm:text-[30px] text-[20px] font-bold text-center text-[#FFC26F] ">
         <p>Menu Kopi</p>
-        <hr className="w-2/5 mb-16 mt-6 bg-white m-auto h-1 item-center border-white" />
+        <hr className="h-1 w-2/5 md:mb-16 sm:mb-12 mb-6 md:mt-6 sm:mt-4 mt-2 bg-white m-auto item-center border-white" />
       </blockquote>
 
-      <div class="text-[20px] text-center text-[#FFC26F] font-bold flex mt-10">
+      <div class="md:text-[20px] sm:text-sm text-xs text-center text-[#FFC26F] font-bold flex mt-10">
         <div className="w-5/6 m-auto">
           <p className="text-center m-auto">
             Penyajian Kopi di Kedai Kopi Launam menggunakan teknik Manual
@@ -67,7 +67,7 @@ export default function Menu() {
         </div>
       </div>
 
-      <div className="mt-20 grid grid-cols-3 gap-20 px-20">
+      <div className="md:mt-20 sm:mt-16 mt-10 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-2 gap-20 px-20">
         {data.length > 0 && data.map((data, i) => {
 
           // eslint-disable-next-line react/jsx-key
@@ -82,6 +82,7 @@ export default function Menu() {
       <br />
       <br />
       <br />
+      <div className="mb-56"></div>
       <Footer />
     </>
   );

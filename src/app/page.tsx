@@ -44,9 +44,9 @@ export default function home() {
             <p className='md:text-4xl sm:text-3xl text-[#FFC26F]'>Menu andalan kami di Launam Coffee.</p>
           </div>
           <div className='flex justify-evenly'>
-          <CardCofee obj={'/assets/botolkopi.gltf'} nama={'Americano'} detail={'asdkasd asdasdas sadasde rgretger grergd sdfsdfsdf'} harga={'Rp.30000'}/>
-          <CardCofee obj={'/assets/botolkopi.gltf'} nama={'Americano'} detail={'asdkasd asdasdas sadasde rgretger grergd sdfsdfsdf'} harga={'Rp.30000'}/>
-           <CardCofee obj={'/assets/botolkopi.gltf'} nama={'Americano'} detail={'asdkasd asdasdas sadasde rgretger grergd sdfsdfsdf'} harga={'Rp.30000'}/>
+          <CardCofee key={1} id={1} obj={'/assets/botolkopi.gltf'} nama={'Americano'} detail={'asdkasd asdasdas sadasde rgretger grergd sdfsdfsdf'} harga={'Rp.30000'}/>
+          <CardCofee  key={1} id={1} obj={'/assets/botolkopi.gltf'} nama={'Americano'} detail={'asdkasd asdasdas sadasde rgretger grergd sdfsdfsdf'} harga={'Rp.30000'}/>
+           <CardCofee  key={1} id={1} obj={'/assets/botolkopi.gltf'} nama={'Americano'} detail={'asdkasd asdasdas sadasde rgretger grergd sdfsdfsdf'} harga={'Rp.30000'}/>
           </div>
         </div>
         <div>
@@ -55,15 +55,15 @@ export default function home() {
             <p className='md:text-4xl sm:text-3xl text-[#FFC26F]'>Berbagai promo di Launam Coffee.</p>
           </div>
           <div className='flex justify-evenly'>
-            <CardPromo src={'/assets/promo.jpg'} text={"Potongztan 50% Akhir Tahun #murahBanget" }detail={"cdscscc"} />
-            <CardPromo src={'/assets/promo2.jpg'} text={"Cuci gudang abis abisan promo Ramadhan buy 1 get 1"}detail={"cdscscc"} />
-            <CardPromo src={'/assets/promo3.jpg'} text={"Potonngtan 50% Akhir Tahun>"}detail={"cdscscc"} />
+            <CardPromo  key={1} id={1} src={'/assets/promo.jpg'} text={"Potongztan 50% Akhir Tahun #murahBanget" }detail={"cdscscc"} />
+            <CardPromo  key={1} id={1} src={'/assets/promo2.jpg'} text={"Cuci gudang abis abisan promo Ramadhan buy 1 get 1"}detail={"cdscscc"} />
+            <CardPromo  key={1} id={1} src={'/assets/promo3.jpg'} text={"Potonngtan 50% Akhir Tahun>"}detail={"cdscscc"} />
           </div>
         </div>
         <div className="h-9/12 container mx-auto md:flex md:items-center md:justify-between">
-          <div className="w-full h-full md:mb-0 mt-48 mb-80 justify-center">
-            <p className='text-[80px] font-bold text-[#FFC26F] text-center m-auto '>Yuk Ngopi</p>
-            <p className='text-4xl text-[#FFC26F] text-center mb-36'>Launam Coffe.</p>
+          <div className="w-full h-full mb-40 mt-40 md:mt-80 md:mb-56 justify-center">
+            <p className='md:text-6xl sm:text-5xl text-4xl font-bold text-[#FFC26F] text-center'>Yuk Ngopi</p>
+            <p className='md:text-4xl sm:text-3xl text-[#FFC26F] text-center'>Launam Coffe.</p>
           </div>
         </div>
         <Footer />

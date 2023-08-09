@@ -50,7 +50,7 @@ const DetailMenu = ({ searchParams }) => {
         <div>
           {data.length > 0 && data.map((data, i) => {
             return (
-              <div className="h-screen text-indigo-100">
+              <div className="h-screen text-indigo-100" key={1}>
                 <div className="h-full container mx-auto md:flex md:items-center md:justify-between m">
                   <div className="w-full h-full md:w-1/2 mb-8 md:mb-0 mr-10 ml-40  justify-center">
                     <h2 className="text-5xl mt-10 font-bold text-[#FFC26F]">

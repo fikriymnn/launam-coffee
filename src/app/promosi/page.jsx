@@ -37,11 +37,11 @@ export default function Promosi({ searchParams }) {
   return (
     <>
       <Navbar />
-      <blockquote className="text-[40px] font-bold text-center text-[#FFC26F] ">
+      <blockquote className="md:text-[40px] sm:text-[30px] text-[20px] font-bold text-center text-[#FFC26F] ">
         <p>Promosi</p>
-        <hr className='h-1 w-2/5 mb-16 mt-6 bg-white m-auto item-center border-white' />
+        <hr className='h-1 w-2/5 md:mb-24 sm:mb-20 mb-16 md:mt-6 sm:mt-4 mt-2 bg-white m-auto item-center border-white' />
       </blockquote>
-      <div className='grid grid-cols-3 justify-items-center'>
+      <div className='grid md:grid-cols-3 sm:grid-cols-2 grid-cols-2 justify-items-center'>
         {data.map((v, i) => {
           return (
             <CardPromo src={v.assets} text={v.text} detail={v.detail} key={i} id={v.id} />
@@ -50,6 +50,7 @@ export default function Promosi({ searchParams }) {
 
 
       </div>
+     <div className="mb-56"></div>
       <Footer />
     </>
   )

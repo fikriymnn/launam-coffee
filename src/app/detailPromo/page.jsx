@@ -49,7 +49,7 @@ export default function DetailPromo({ searchParams }) {
                 </blockquote>
                 {data.length > 0 && data.map((data, i) => {
                     return (
-                        <div className=" mx-56 p-10 bg-[#3C2A21] rounded-xl">
+                        <div className=" mx-56 p-10 bg-[#3C2A21] rounded-xl" key={i}>
                             <Image src={data.assets} width={800} height={100} alt="promo image" className="mx-auto" />
                             <p className="text-center text-[#FFC26F] text-xl my-10">
                                 <p className="text-center text-[#FFC26F] text-3xl my-8 font-bold">
