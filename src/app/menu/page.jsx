@@ -20,16 +20,16 @@ import { useEffect, useState, } from "react";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import CardCoffe from "@/components/CardCoffe";
-export default function Menu  ()  {
+export default function Menu() {
   const [data, setData] = useState([])
 
   useEffect(() => {
-    
+
 
     getData()
 
 
-  },[data.length])
+  }, [data.length])
   const getData = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, "produk"));
@@ -46,7 +46,7 @@ export default function Menu  ()  {
     }
 
   }
-  
+
   return (
     <>
       <Navbar />
@@ -68,16 +68,16 @@ export default function Menu  ()  {
       </div>
 
       <div className="mt-20 grid grid-cols-3 gap-20 px-20">
-      {data.length > 0 && data.map((data,i) => {
-         
-         // eslint-disable-next-line react/jsx-key
-        return(<CardCoffe obj={data.assets} nama={data.namaProd} harga={data.harga} detail={data.detail}/>
+        {data.length > 0 && data.map((data, i) => {
 
-        )
-})}
+          // eslint-disable-next-line react/jsx-key
+          return (<CardCoffe obj={data.assets} nama={data.namaProd} harga={data.harga} detail={data.detail} key={i} id={data.id} doc />
 
-       
-       
+          )
+        })}
+
+
+
       </div>
       <br />
       <br />

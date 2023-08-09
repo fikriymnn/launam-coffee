@@ -2,18 +2,19 @@
 import Image from "next/image"
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
-export default function CardPromo({src,text,detail}){
-    return(
-      <a href={`/detailPromo?text=${text}&detail=${detail}&src=${src}`}>
-        <motion.div>
-            <Tilt
+export default function CardPromo({ src, text, detail, id }) {
+  return (
+    <a href={`/detailPromo?id=${id}`}>
+      <motion.div>
+        <Tilt
           options={{
             max: 45,
             scale: 1,
             speed: 450,
           }}
-         
+
         >
+
         <div className="bg-[#3C2A21] md:h-[455px] sm:h-[260px] h-[155px] md:w-[360px] sm:w-[200px] w-[120px] rounded-lg">
         <Image className="md:w-full m-auto rounded-lg" src={src} width={200} height={200} />
         <div className="flex justify-center">
@@ -22,7 +23,7 @@ export default function CardPromo({src,text,detail}){
        
         </div> 
         </Tilt>
-        </motion.div>
-        </a>
-    )
+      </motion.div>
+    </a>
+  )
 }
