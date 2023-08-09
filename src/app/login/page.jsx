@@ -4,16 +4,21 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../lib/firebase/page"
+import { useAuth } from "@/components/authService";
 
 
 
 export default function Admin() {
   const { push } = useRouter();
+
+  const { logIn } = useAuth();
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
+    // await logIn(email, password);
+    // router.push("/produkAdmin");
     signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
       console.log(userCredential.user);
       push("/produkAdmin")

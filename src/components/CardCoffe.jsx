@@ -5,13 +5,15 @@ import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
+
 const Object = ({ src }) => {
   const coffee = useGLTF(src);
 
   return <primitive object={coffee.scene} scale={5} position-y={-2} />;
 };
 
-export default function CardCoffee({ obj,nama,harga,detail }) {
+export default function CardCoffee({ obj, nama, harga, detail, id, key }) {
+
   return (
     <>
       <motion.div>
@@ -21,10 +23,11 @@ export default function CardCoffee({ obj,nama,harga,detail }) {
             scale: 1,
             speed: 450,
           }}
+          key={key}
           className="p-5 h-92 rounded-2xl sm:w-[360px] w-full bg-[#3C2A21]"
         >
           <div className="">
-            <h3 className="text-[#ffdcd2] font-bold text-[24px]">Americano</h3>
+            <h3 className="text-[#ffdcd2] font-bold text-[24px]">{nama}</h3>
           </div>
           <div className="mt-5"></div>
           <div className="bg-[#d6a764] w-full mb-5 rounded-lg pt-5 h-56">
@@ -55,16 +58,16 @@ export default function CardCoffee({ obj,nama,harga,detail }) {
               </Suspense>
             </Canvas>
           </div>
-         
+
           <div className="grid grid-cols-3">
-          <p className="text-white my-5 font-bold">
-           {harga}
-          </p>
-          <div></div>
-          <a  href={`/detail?obj=${obj}&nama=${nama}&detail=${detail}&harga=${harga}`} className="text-[#884A39] font-medium rounded-lg text-sm m-auto px-5 py-2 bg-white hover:bg-slate-400 ">Detail</a>
+            <p className="text-white my-5 font-bold">
+              {harga}
+            </p>
+            <div></div>
+            <a href={`/detail?id=${id}`} className="text-[#884A39] font-medium rounded-lg text-sm m-auto px-5 py-2 bg-white hover:bg-slate-400 ">Detail</a>
 
           </div>
-         
+
         </Tilt>
       </motion.div>
     </>

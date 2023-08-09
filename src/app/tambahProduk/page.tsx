@@ -9,25 +9,35 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/
 import { db, storage } from '../../../lib/firebase/page'
 
 
+import { useRouter } from 'next/navigation';
+import { useEffect, useContext } from "react";
+
+
+
+
+
 import React from 'react'
 
 
 
+
 export default function TambahProduk() {
+
+
   const [nama, setNama] = useState('');
   const [harga, setHarga] = useState('');
   const [detail, setDetail] = useState('');
-  const [loading,setLoading]=useState(false)
+  const [loadingg, setLoading] = useState(false)
 
 
   const [imageFile, setImageFile] = useState<File>();
   const [downloadURL, setDownloadURL] = useState('')
 
- const Loading = ()=>{
-  return(
-    <p>Loading</p>
-  )
- }
+  const Loading = () => {
+    return (
+      <p>Loading</p>
+    )
+  }
   const handleSelectedFile = (filee: any) => {
     const files = filee.files
     if (files && files[0].size < 10000000) {
@@ -39,7 +49,7 @@ export default function TambahProduk() {
           const name = files[0].name
           const storageRef = ref(storage, `assets/${name}`)
           const uploadTask = uploadBytesResumable(storageRef, files[0])
-  
+
           uploadTask.on(
             'state_changed',
             (snapshot) => {
@@ -51,29 +61,29 @@ export default function TambahProduk() {
               alert(error.message)
             },
             () => {
-            
-                getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-                  //url is download url of file
-                  console.log(url)
-                  setDownloadURL(url)
-                  setLoading(false)
-                })
+
+              getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+                //url is download url of file
+                console.log(url)
+                setDownloadURL(url)
+                setLoading(false)
+              })
             },
           )
-  
-  
-  
+
+
+
         } else {
           alert("error")
         }
-  
-  
-  
-  
+
+
+
+
       } catch (error) {
         console.error("An error occured", error);
       }
-     
+
       console.log(files[0])
     } else {
       alert('File size to large')
@@ -115,8 +125,8 @@ export default function TambahProduk() {
   // }
 
 
-  const addData = async (e:any) => {
-   
+  const addData = async (e: any) => {
+
     e.preventDefault()
     const docRef = await addDoc(collection(db, "produk"), {
       namaProd: nama,
@@ -135,7 +145,7 @@ export default function TambahProduk() {
       <div className="bg-[#3C2A21] w-[500px] mx-auto rounded-xl">
         <h1 className="text-center text-3xl text-white pt-10 font-bold">Tambah Produk</h1>
         <div className="p-20">
-          <form onSubmit={(e)=>addData(e)} encType="multipart/form-data">
+          <form onSubmit={(e) => addData(e)} encType="multipart/form-data">
             <div>
               <label htmlFor="username">Nama Produk : </label>
               <br />
@@ -170,10 +180,10 @@ export default function TambahProduk() {
             <br />
             <br />
             <p className="text-xs text-yellow-200 mb-2">*Tunggu input file 3D selesai sebelum submit</p>
-            {loading&&<Loading/>}
+            {loadingg && <Loading />}
             <input id="file" name="file" type="file" required onChange={(files) => handleSelectedFile(files.target)} />
             <div className="flex items-center mt-3">
-              <button type="submit"  className="bg-neutral-400 px-4 py-2 rounded-lg mx-auto mt-6 hover:bg-neutral-600"  >
+              <button type="submit" className="bg-neutral-400 px-4 py-2 rounded-lg mx-auto mt-6 hover:bg-neutral-600"  >
                 Tambah Produk
               </button>
             </div>

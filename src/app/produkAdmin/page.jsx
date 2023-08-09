@@ -13,18 +13,19 @@ import { collection, addDoc, getDocs, where, query, deleteDoc, updateDoc, doc, F
 import { db, storage } from '../../../lib/firebase/page'
 import Link from "next/link";
 import { useEffect, useState, } from "react";
+import ProtectedRoute from "@/components/auth";
 
 
 export default function ProdukAdmin() {
   const [data, setData] = useState([])
 
   useEffect(() => {
-    
+
 
     getData()
 
 
-  },[data.length])
+  }, [data.length])
   const getData = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, "produk"));
@@ -41,40 +42,45 @@ export default function ProdukAdmin() {
     }
 
   }
-  
+
 
 
   return (
-    <div className="h-screen">
-      <NavbarAdmin />
-      <blockquote className="text-[40px] font-bold text-center text-gray-900 ">
-        <p>Dashboard Produk</p>
-        <hr className="h-1 w-2/5 mb-16 mt-6 bg-black m-auto item-center border-black" />
-      </blockquote>
-      <div className="flex items-center">
-        <div className="bg-[#3C2A21] rounded w-64 mx-auto mb-10 hover:bg-[#ffc36fa4]">
-          <Link className="text-center px-10 my-16 m-auto text-xl text-white font-bold" href={'/tambahProduk'}> Tambah Produk</Link>
+    <>
+
+      <div className="h-screen">
+        <NavbarAdmin />
+        <blockquote className="text-[40px] font-bold text-center text-gray-900 ">
+          <p>Dashboard Produk</p>
+          <hr className="h-1 w-2/5 mb-16 mt-6 bg-black m-auto item-center border-black" />
+        </blockquote>
+        <div className="flex items-center">
+          <div className="bg-[#3C2A21] rounded w-64 mx-auto mb-10 hover:bg-[#ffc36fa4]">
+            <Link className="text-center px-10 my-16 m-auto text-xl text-white font-bold" href={'/tambahProduk'}> Tambah Produk</Link>
+          </div>
         </div>
-      </div>
 
 
 
-      <div className="grid grid-cols-3 justify-items-center gap-10">
-        {data.length > 0 && data.map((data,i) => {
-         
-          // eslint-disable-next-line react/jsx-key
-         return( <CardCoffeeAdmin src={data.assets} name={data.namaProd} id={data.id} harga={data.harga} deskripsi={data.detail} key={i}/>
-         )
-})}
+        <div className="grid grid-cols-3 justify-items-center gap-10">
+          {data.length > 0 && data.map((data, i) => {
 
-        {/* <CardCoffeeAdmin src={"./assets/botolkopi.gltf"} />
+            // eslint-disable-next-line react/jsx-key
+            return (<CardCoffeeAdmin src={data.assets} name={data.namaProd} id={data.id} harga={data.harga} deskripsi={data.detail} key={i} />
+            )
+          })}
+
+          {/* <CardCoffeeAdmin src={"./assets/botolkopi.gltf"} />
         <CardCoffeeAdmin src={"./assets/botolkopi.gltf"} />
         <CardCoffeeAdmin src={"./assets/botolkopi.gltf"} />
         <CardCoffeeAdmin src={"./assets/americano.gltf"} />
         <CardCoffeeAdmin src={"./assets/botolkopi.gltf"} /> */}
+        </div>
+        <div className="h-6/12"></div>
+        <Footer />
       </div>
-      <div className="h-6/12"></div>
-      <Footer />
-    </div>
+
+    </>
+
   );
 }
