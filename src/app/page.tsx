@@ -18,18 +18,18 @@ export default function home() {
   return (
     <>
       <Navbar />
-      <div className="md:h-screen sm:h-3/6 py-20 text-indigo-100 z-10 relative">
+      <div className="h-[600px] sm:h-screen md:h-screen py-5 md:py-20 text-indigo-100 z-10 relative">
 
 
 
 
 
-        <div className="h-full container mx-auto md:flex md:items-center md:justify-between">
-          <div className="w-full h-full md:w-1/2 md:mb-0 mr-10 md:ml-20 sm:ml-10 ml-5 md:mt-80 sm:mt-48 justify-center">
-            <p className='md:text-6xl sm:text-3xl text-xl font-bold text-[#FFC26F]'>Kedai Kopi Launam.</p>
-            <p className='text-4xl text-[#FFC26F]'>Menyediakan Berbagai Kopi.</p>
+        <div className="h-full  mx-auto md:flex md:items-center md:justify-between">
+          <div className="w-full mt-20 sm:mb-10 mb-20 md:h-full md:w-1/2 md:mb-0 md:ml-16 sm:mt-10  md:mt-48  text-center">
+            <p className='md:text-5xl sm:text-4xl text-3xl font-bold text-[#FFC26F]'>Kedai Kopi Launam.</p>
+            <p className='md:text-4xl sm:text-3xl text-[#FFC26F]'>Menyediakan Berbagai Kopi.</p>
           </div>
-          <div className="w-full h-full md:w-1/2">
+          <div className="w-3/4  mt-10 sm:h-3/4 sm:w-3/4 mx-auto h-3/5 sm:mx-auto md:h-full">
             <CoffeeCanvas />
           </div>
         </div>
@@ -40,8 +40,8 @@ export default function home() {
 
         <div>
           <div className="w-full h-full mb-16 mt-5 justify-center col-start-2 text-center">
-            <p className='text-5xl font-bold text-[#FFC26F]'>Top Menu.</p>
-            <p className='text-3xl text-[#FFC26F]'>Menu andalan kami di Launam Coffee.</p>
+            <p className='md:text-5xl sm:text-4xl text-3xl font-bold text-[#FFC26F]'>Top Menu.</p>
+            <p className='md:text-4xl sm:text-3xl text-[#FFC26F]'>Menu andalan kami di Launam Coffee.</p>
           </div>
           <div className='flex justify-evenly'>
           <CardCofee obj={'/assets/botolkopi.gltf'} nama={'Americano'} detail={'asdkasd asdasdas sadasde rgretger grergd sdfsdfsdf'} harga={'Rp.30000'}/>
@@ -51,8 +51,8 @@ export default function home() {
         </div>
         <div>
           <div className="w-full h-full mb-16 mt-32 justify-center col-start-2 text-center">
-            <p className='text-5xl font-bold text-[#FFC26F]'>Promo.</p>
-            <p className='text-3xl text-[#FFC26F]'>Berbagai promo di Launam Coffee.</p>
+            <p className='md:text-5xl sm:text-4xl text-3xl font-bold text-[#FFC26F]'>Promo.</p>
+            <p className='md:text-4xl sm:text-3xl text-[#FFC26F]'>Berbagai promo di Launam Coffee.</p>
           </div>
           <div className='flex justify-evenly'>
             <CardPromo src={'/assets/promo.jpg'} text={"Potongztan 50% Akhir Tahun #murahBanget" }detail={"cdscscc"} />

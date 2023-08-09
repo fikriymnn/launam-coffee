@@ -14,10 +14,10 @@ export default function CardPromo({src,text,detail}){
           }}
          
         >
-        <div className="bg-[#3C2A21] h-[455px] w-[360px] rounded-lg">
-        <Image className="w-full m-auto rounded-lg" src={src} width={180} height={180} />
+        <div className="bg-[#3C2A21] md:h-[455px] sm:h-[260px] h-[155px] md:w-[360px] sm:w-[200px] w-[120px] rounded-lg">
+        <Image className="md:w-full m-auto rounded-lg" src={src} width={200} height={200} />
         <div className="flex justify-center">
-        <h1 className="text-base text-white font-bold p-5 text-center">{text}</h1>
+        <h1 className="md:text-base sm:text-xs text-[6px] text-white font-bold md:p-5 sm:p-2 p-1 sm:mt-2 mt-1 text-center">{text}</h1>
         </div>
        
         </div> 
