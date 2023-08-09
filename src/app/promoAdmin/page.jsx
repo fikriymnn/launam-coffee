@@ -13,9 +13,9 @@ import { collection, addDoc, getDocs, where, query, deleteDoc, updateDoc, doc, F
 import { db, storage } from '../../../lib/firebase/page'
 import Link from "next/link";
 import { useEffect, useState, } from "react";
+import CardPromoAdmin from '@/components/CardPromoAdmin'
 
-
-export default function ProdukAdmin() {
+export default function Promo() {
   const [data, setData] = useState([])
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function ProdukAdmin() {
   },[data.length])
   const getData = async () => {
     try {
-      const querySnapshot = await getDocs(collection(db, "produk"));
+      const querySnapshot = await getDocs(collection(db, "promo"));
       let data = [];
       console.log(querySnapshot)
       querySnapshot.forEach((doc) => {
@@ -44,16 +44,17 @@ export default function ProdukAdmin() {
   
 
 
+
   return (
     <div className="h-screen">
       <NavbarAdmin />
       <blockquote className="text-[40px] font-bold text-center text-gray-900 ">
-        <p>Dashboard Produk</p>
+        <p>Dashboard Promo</p>
         <hr className="h-1 w-2/5 mb-16 mt-6 bg-black m-auto item-center border-black" />
       </blockquote>
       <div className="flex items-center">
         <div className="bg-[#3C2A21] rounded w-64 mx-auto mb-10 hover:bg-[#ffc36fa4]">
-          <Link className="text-center px-10 my-16 m-auto text-xl text-white font-bold" href={'/tambahProduk'}> Tambah Produk</Link>
+          <Link className="text-center px-10 my-16 m-auto text-xl text-white font-bold" href={'/tambahPromo'}> Tambah Promo</Link>
         </div>
       </div>
 
@@ -63,15 +64,11 @@ export default function ProdukAdmin() {
         {data.length > 0 && data.map((data,i) => {
          
           // eslint-disable-next-line react/jsx-key
-         return( <CardCoffeeAdmin src={data.assets} name={data.namaProd} id={data.id} harga={data.harga} deskripsi={data.detail} key={i}/>
+         return( <CardPromoAdmin src={data.assets} text={data.text} detail={data.detail} id={data.id} key={i}/>
          )
 })}
 
-        {/* <CardCoffeeAdmin src={"./assets/botolkopi.gltf"} />
-        <CardCoffeeAdmin src={"./assets/botolkopi.gltf"} />
-        <CardCoffeeAdmin src={"./assets/botolkopi.gltf"} />
-        <CardCoffeeAdmin src={"./assets/americano.gltf"} />
-        <CardCoffeeAdmin src={"./assets/botolkopi.gltf"} /> */}
+        
       </div>
       <div className="h-6/12"></div>
       <Footer />

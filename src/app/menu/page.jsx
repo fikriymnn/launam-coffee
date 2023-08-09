@@ -8,16 +8,45 @@ import {
   CoffeeAmericano,
 } from "../../components/canvas/americano";
 import { VietdripCanvas, CoffeeViet } from "../../components/canvas/vietdrip";
+import { collection, addDoc, getDocs, where, query, deleteDoc, updateDoc, doc, Firestore, } from "firebase/firestore";
+import { db, storage } from '../../../lib/firebase/page'
 import {
   CoffeeCepukCanvas,
   CoffeeCepuk,
 } from "../../components/canvas/coffee_cepuk";
 
 import { fadeIn, textVariant } from "../../utils/motion";
+import { useEffect, useState, } from "react";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import CardCoffe from "@/components/CardCoffe";
+export default function Menu  ()  {
+  const [data, setData] = useState([])
 
-const Menu = () => {
+  useEffect(() => {
+    
+
+    getData()
+
+
+  },[data.length])
+  const getData = async () => {
+    try {
+      const querySnapshot = await getDocs(collection(db, "produk"));
+      let data = [];
+      console.log(querySnapshot)
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+        data.push({ ...doc.data(), id: doc.id })
+      });
+      setData(data)
+    } catch (error) {
+      alert(error)
+    }
+
+  }
+  
   return (
     <>
       <Navbar />
@@ -39,89 +68,13 @@ const Menu = () => {
       </div>
 
       <div className="mt-20 grid grid-cols-3 gap-20 px-20">
-        <motion.div>
-          <Tilt
-            options={{
-              max: 45,
-              scale: 1,
-              speed: 450,
-            }}
-            className="p-5 h-92 rounded-2xl sm:w-[360px] w-full bg-[#3C2A21]"
-          >
-            <div className="">
-              <h3 className="text-white font-bold text-[24px]">
-                Americano
-              </h3>
-            </div>
-            <div className="mt-5"></div>
-            <div className="bg-[#d6a764] w-full mb-5 rounded-lg pt-5 h-56">
-              <AmericanoCanvas />
-            </div>
+      {data.length > 0 && data.map((data,i) => {
+         
+         // eslint-disable-next-line react/jsx-key
+        return(<CardCoffe obj={data.assets} nama={data.namaProd} harga={data.harga} detail={data.detail}/>
 
-            <a
-              href="/americano"
-              class="text-[#884A39] dark:border-gray-600 bg-white hover:bg-gray-200 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 "
-            >
-              Detail
-            </a>
-          </Tilt>
-        </motion.div>
-
-        <motion.div>
-          <Tilt
-            options={{
-              max: 45,
-              scale: 1,
-              speed: 450,
-            }}
-            className="p-5 h-92 rounded-2xl sm:w-[360px] w-full bg-[#3C2A21]"
-          >
-            <div className="">
-              <h3 className="text-white font-bold text-[24px]">
-              Es Kopi Cepuk
-              </h3>
-            </div>
-            <div className="mt-5"></div>
-            <div className="bg-[#d6a764] w-full mb-5 rounded-lg pt-5 h-56">
-            <CoffeeCepukCanvas />
-            </div>
-
-            <a
-              href="/coffee_cepuk"
-              class="text-[#884A39] dark:border-gray-600 bg-white hover:bg-gray-200 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 "
-            >
-              Detail
-            </a>
-          </Tilt>
-        </motion.div>
-
-        <motion.div>
-          <Tilt
-            options={{
-              max: 45,
-              scale: 1,
-              speed: 450,
-            }}
-            className="p-5 h-92 rounded-2xl sm:w-[360px] w-full bg-[#3C2A21]"
-          >
-            <div className="">
-              <h3 className="text-white font-bold text-[24px]">
-              Vietnam Drip
-              </h3>
-            </div>
-            <div className="mt-5"></div>
-            <div className="bg-[#d6a764] w-full mb-5 rounded-lg pt-5 h-56">
-            <VietdripCanvas />
-            </div>
-
-            <a
-              href="/vietdrip"
-              class="text-[#884A39] dark:border-gray-600 bg-white hover:bg-gray-200 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 "
-            >
-              Detail
-            </a>
-          </Tilt>
-        </motion.div>
+        )
+})}
 
        
        
@@ -134,4 +87,4 @@ const Menu = () => {
   );
 };
 
-export default Menu;
+

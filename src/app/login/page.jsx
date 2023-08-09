@@ -2,20 +2,34 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../../lib/firebase/page"
+
+
 
 export default function Admin() {
   const { push } = useRouter();
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const onSubmit = (e) => {
+    signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
+      console.log(userCredential.user);
+      push("/produkAdmin")
+    }).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert(errorMessage);
+      console.log(errorCode)
+    });
     e.preventDefault();
     console.log("onSubmit");
-    console.log(username);
+    console.log(email);
     console.log(password);
 
-    push("/menu");
+    // push("/menu");
+
   };
   return (
     <>
@@ -26,13 +40,13 @@ export default function Admin() {
         <div className="p-20">
           <form onSubmit={onSubmit}>
             <div>
-              <label for="username">Username :</label>
+              <label for="email">email :</label>
               <input
-                id="username"
-                name="username"
+                id="email"
+                name="email"
                 type="text"
                 className="text-black my-5"
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div>

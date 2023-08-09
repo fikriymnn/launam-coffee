@@ -2,8 +2,9 @@
 import Image from "next/image"
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
-export default function CardPromo({src,text}){
+export default function CardPromo({src,text,detail}){
     return(
+      <a href={`/detailPromo?text=${text}&detail=${detail}&src=${src}`}>
         <motion.div>
             <Tilt
           options={{
@@ -22,5 +23,6 @@ export default function CardPromo({src,text}){
         </div> 
         </Tilt>
         </motion.div>
+        </a>
     )
 }

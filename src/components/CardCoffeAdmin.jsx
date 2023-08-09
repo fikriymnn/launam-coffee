@@ -4,6 +4,11 @@ import { motion } from "framer-motion";
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
+import { collection, addDoc, getDocs, where, query, deleteDoc, updateDoc, doc, Firestore, } from "firebase/firestore";
+import { db, storage } from '../../lib/firebase/page'
+import { useRouter } from "next/navigation";
+
+
 
 const Object = ({ src }) => {
   const coffee = useGLTF(src);
@@ -11,7 +16,23 @@ const Object = ({ src }) => {
   return <primitive object={coffee.scene} scale={5} position-y={-2} />;
 };
 
-export default function CardCoffeeAdmin({ src }) {
+export default function CardCoffeeAdmin({ src, name, harga, deskripsi, id }) {
+  const router = useRouter();
+  const deleteProd = async () => {
+    try {
+      // Delete the todo document with the given ID from the "todos" collection in Firestore.
+      await deleteDoc(doc(db, "produk", id));
+      alert("delete success")
+      location.reload();
+      console.log("Deleted successfully");
+      
+
+
+    } catch (error) {
+      console.error("An error occured", error);
+    }
+  };
+
   return (
     <>
       <motion.div>
@@ -23,8 +44,8 @@ export default function CardCoffeeAdmin({ src }) {
           }}
           className="p-5 h-92 rounded-2xl sm:w-[360px] w-full bg-[#3C2A21]"
         >
-          <div className="">
-            <h3 className="text-[#ffdcd2] font-bold text-[24px]">Americano</h3>
+          <div className="" key={id}>
+            <h3 className="text-[#ffdcd2] font-bold text-[24px]">{name}</h3>
           </div>
           <div className="mt-5"></div>
           <div className="bg-[#ffdcd2] w-full mb-5 rounded-lg pt-5 h-56">
@@ -51,23 +72,22 @@ export default function CardCoffeeAdmin({ src }) {
                   maxAzimuthAngle={Math.PI / 3}
                 />
                 <Object src={src} />
+                
                 <Preload all />
               </Suspense>
             </Canvas>
           </div>
 
           <a
-            href="/edit"
+            href={`/editProduk?id=${id}&nama=${name}&detail=${deskripsi}&harga=${harga}`}
             class="text-black dark:border-gray-600 bg-white hover:bg-gray-200 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 "
           >
             Edit
           </a>
-          <a
-            href="/delete"
-            class="text-black dark:border-gray-600 bg-white hover:bg-gray-200 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 "
-          >
+          <button onClick={deleteProd} className="text-black dark:border-gray-600 bg-white hover:bg-gray-200 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"  >
             Delete
-          </a>
+          </button>
+
         </Tilt>
       </motion.div>
     </>
