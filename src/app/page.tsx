@@ -18,15 +18,15 @@ export default function home() {
   return (
     <>
       <Navbar />
-      <div className="h-screen py-20 text-indigo-100 z-10 relative">
+      <div className="md:h-screen sm:h-3/6 py-20 text-indigo-100 z-10 relative">
 
 
 
 
 
         <div className="h-full container mx-auto md:flex md:items-center md:justify-between">
-          <div className="w-full h-full md:w-1/2 md:mb-0 mr-10 ml-20 mt-80 justify-center">
-            <p className='text-6xl font-bold text-[#FFC26F]'>Kedai Kopi Launam.</p>
+          <div className="w-full h-full md:w-1/2 md:mb-0 mr-10 md:ml-20 sm:ml-10 ml-5 md:mt-80 sm:mt-48 justify-center">
+            <p className='md:text-6xl sm:text-3xl text-xl font-bold text-[#FFC26F]'>Kedai Kopi Launam.</p>
             <p className='text-4xl text-[#FFC26F]'>Menyediakan Berbagai Kopi.</p>
           </div>
           <div className="w-full h-full md:w-1/2">
