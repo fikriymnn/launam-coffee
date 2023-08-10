@@ -11,14 +11,65 @@ import { AmericanoCanvas } from '@/components/canvas/americano';
 import CardPromo from '@/components/CardPromo';
 import { CoffeeCepukCanvas, CoffeeCepuk } from "@/components/canvas/coffee_cepuk";
 import Navbar from '@/components/Navbar';
-import CardCofee from '@/components/CardCoffe'
+import CardCoffe from "@/components/CardCoffe";
 import { AuthContextProvider } from "../components/authService";
+import { collection, addDoc, getDocs, where, query, deleteDoc, updateDoc, doc, Firestore, orderBy, limit } from "firebase/firestore";
+import { db, storage } from '../../lib/firebase/page'
+import { useEffect, useState, } from "react";
 
 
 export default function home() {
+  const [data, setData] = useState([])
+  const [data2, setData2] = useState([])
+
+  useEffect(() => {
+
+
+    getData()
+    getData2()
+
+
+  }, [data.length])
+  const getData = async () => {
+    try {
+      const ordersRef = collection(db, "produk");
+      const q = query(ordersRef, orderBy("namaProd", "desc"), limit(3));
+      const querySnapshot = await getDocs(q);
+      let data = [];
+      console.log(querySnapshot)
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+        data.push({ ...doc.data(), id: doc.id })
+      });
+      setData(data)
+    } catch (error) {
+      alert(error)
+    }
+
+  }
+
+  const getData2 = async () => {
+    try {
+      const ordersRef = collection(db, "promo");
+      const q = query(ordersRef, orderBy("text", "desc"), limit(3));
+      const querySnapshot = await getDocs(q);
+      let data2 = [];
+      console.log(querySnapshot)
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+        data2.push({ ...doc.data(), id: doc.id })
+      });
+      setData2(data2)
+    } catch (error) {
+      alert(error)
+    }
+
+  }
   return (
     <>
-    <AuthContextProvider>
+
       <Navbar />
       <div className="h-[600px] sm:h-screen md:h-screen py-5 md:py-20 text-indigo-100 z-10 relative">
 
@@ -46,9 +97,14 @@ export default function home() {
             <p className='md:text-4xl sm:text-3xl text-[#FFC26F]'>Menu terbaru kami di Launam Coffee.</p>
           </div>
           <div className='flex justify-evenly'>
-          <CardCofee key={1} id={1} obj={'/assets/botolkopi.gltf'} nama={'Americano'} detail={'asdkasd asdasdas sadasde rgretger grergd sdfsdfsdf'} harga={'Rp.30000'}/>
-          <CardCofee  key={1} id={1} obj={'/assets/botolkopi.gltf'} nama={'Americano'} detail={'asdkasd asdasdas sadasde rgretger grergd sdfsdfsdf'} harga={'Rp.30000'}/>
-           <CardCofee  key={1} id={1} obj={'/assets/botolkopi.gltf'} nama={'Americano'} detail={'asdkasd asdasdas sadasde rgretger grergd sdfsdfsdf'} harga={'Rp.30000'}/>
+            {data.map((data, i) => {
+
+              // eslint-disable-next-line react/jsx-key
+              return (<CardCoffe obj={data.assets} nama={data.namaProd} harga={data.harga} detail={data.detail} key={i} id={data.id} doc />
+
+              )
+            })}
+
           </div>
         </div>
         <div>
@@ -57,9 +113,11 @@ export default function home() {
             <p className='md:text-4xl sm:text-3xl text-[#FFC26F]'>Berbagai promo di Launam Coffee.</p>
           </div>
           <div className='flex justify-evenly'>
-            <CardPromo  key={1} id={1} src={'/assets/promo.jpg'} text={"Potongztan 50% Akhir Tahun #murahBanget" }detail={"cdscscc"} />
-            <CardPromo  key={1} id={1} src={'/assets/promo2.jpg'} text={"Cuci gudang abis abisan promo Ramadhan buy 1 get 1"}detail={"cdscscc"} />
-            <CardPromo  key={1} id={1} src={'/assets/promo3.jpg'} text={"Potonngtan 50% Akhir Tahun>"}detail={"cdscscc"} />
+            {data2.map((v, i) => {
+              return (
+                <CardPromo src={v.assets} text={v.text} detail={v.detail} key={i} id={v.id} />
+              )
+            })}
           </div>
         </div>
         <div className="h-9/12 container mx-auto md:flex md:items-center md:justify-between">
@@ -71,7 +129,7 @@ export default function home() {
         <Footer />
 
       </div >
-      </AuthContextProvider>
+
 
 
     </>

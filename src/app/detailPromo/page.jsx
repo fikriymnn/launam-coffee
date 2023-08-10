@@ -55,12 +55,13 @@ export default function DetailPromo({ searchParams }) {
                                 <p className="text-center text-[#FFC26F] md:text-3xl sm:xl text-sm my-4 md:my-8 font-bold">
                                     {data.text}
                                 </p>
+
                                 {data.detail}
                             </p>
                         </div>
                     )
                 })}
-<div className="mt-28 md:mt-0 sm:mt-0"></div>
+                <div className="mt-28 md:mt-0 sm:mt-0"></div>
                 <Footer />
             </div>
 

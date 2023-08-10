@@ -35,7 +35,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/layout.js",
-    "src/app/page.jsx",
+    "src/app/page.tsx",
     "src/app/tambahProduk/page.tsx",
     "src/app/editProduk/page.tsx",
     "src/app/produkAdmin/page.tsx"

@@ -25,7 +25,7 @@ export default function CardCoffeeAdmin({ src, name, harga, deskripsi, id }) {
       alert("delete success")
       location.reload();
       console.log("Deleted successfully");
-      
+
 
 
     } catch (error) {
@@ -42,7 +42,7 @@ export default function CardCoffeeAdmin({ src, name, harga, deskripsi, id }) {
             scale: 1,
             speed: 450,
           }}
-          className="md:p-5 sm:p-4 p-3  rounded-2xl sm:w-[200px] md:w-[350px] w-[120px]  bg-[#3C2A21]"
+          className="md:p-5 sm:p-4 p-3 mb-16  rounded-2xl sm:w-[200px] md:w-[350px] w-[120px]  bg-[#3C2A21]"
         >
           <div className="" key={id}>
             <h3 className="text-[#ffdcd2] font-bold md:text-[21px] sm:text-[16px] text-[10px]">{name}</h3>
@@ -72,7 +72,7 @@ export default function CardCoffeeAdmin({ src, name, harga, deskripsi, id }) {
                   maxAzimuthAngle={Math.PI / 3}
                 />
                 <Object src={src} />
-                
+
                 <Preload all />
               </Suspense>
             </Canvas>
