@@ -1,16 +1,13 @@
-'use client'
+
 import './globals.css'
-import { Metadata } from 'next'
+
 import { Inter } from 'next/font/google'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { StarsCanvas, Stars } from "../components/canvas/beans";
 import './script'
-import Head  from 'next/head'
-import Script from 'next/script'
-// eslint-disable-next-line @next/next/no-document-import-in-page
-import { Html } from 'next/document'
-import {Alert} from 'flowbite-react'
+
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -23,10 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-   <Head>
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.css"  rel="stylesheet" />
-   
-   </Head>
+  <head></head>
       <body className={inter.className}>
 
         <div className="z-0 flex h-screen w-screen fixed top-0">
