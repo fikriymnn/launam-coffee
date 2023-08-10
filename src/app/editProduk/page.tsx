@@ -127,12 +127,12 @@ export default function EditProduk() {
   return (
     <>
       <NavbarAdmin />
-      <div className="bg-[#3C2A21] w-[500px] mx-auto rounded-xl">
-        <h1 className="text-center text-3xl text-white pt-10 font-bold">Edit Produk</h1>
-        <div className="p-20">
+      <div className="bg-[#3C2A21] md:w-[500px] sm:w-[500px] w-[370px] mx-auto rounded-xl">
+        <h1 className="text-center md:text-3xl sm:text-xl text-lg text-white pt-10 font-bold">Edit Produk</h1>
+        <div className="p-10 md:p-20 sm:p-20">
           <form onSubmit={(e)=>update(e)} encType="multipart/form-data">
             <div>
-              <label htmlFor="username">Nama Produk : </label>
+              <label htmlFor="username" className="md:text-base sm:text-sm text-xs">Nama Produk : </label>
               <br />
               <input
               value={nama || ""}
@@ -146,7 +146,7 @@ export default function EditProduk() {
               />
             </div>
             <div>
-              <label htmlFor="harga">Harga :</label>
+              <label htmlFor="harga" className="md:text-base sm:text-sm text-xs">Harga :</label>
               <br />
               <input
                value={harga || ""}
@@ -159,24 +159,25 @@ export default function EditProduk() {
                 onChange={(e) => setHarga(e.target.value)}
               />
             </div>
-            <label htmlFor="w3review">Detail :</label>
+            <label htmlFor="w3review" className="md:text-base sm:text-sm text-xs">Detail :</label>
             <br />
             <textarea  value={detail || ""} required placeholder="masukan detail..." className="text-black my-5 w-64" id="w3review" name="w3review" onChange={(e) => { setDetail(e.target.value) }}></textarea>
             <br />
-            <label htmlFor="file">File 3D :</label>
+            <label htmlFor="file" className="md:text-base sm:text-sm text-xs">File 3D :</label>
             <br />
             <br />
             <p className="text-xs text-yellow-200 mb-2">*Input file 3D terbaru untuk memperbarui</p>
             {loading&&<p>Loading</p>}
             <input id="file" name="file" type="file" onChange={(files) => handleSelectedFile(files.target)} />
             <div className="flex items-center mt-3">
-              <button  className="bg-neutral-400 px-4 py-2 rounded-lg mx-auto mt-6 hover:bg-neutral-600"  >
+              <button  className="bg-neutral-400 px-4 py-2 rounded-lg mx-auto mt-6 hover:bg-neutral-600 md:text-base sm:text-sm text-xs"  >
                 Perbarui Produk
               </button>
             </div>
           </form>
         </div>
       </div>
+      <div className="mt-24"></div>
       <Footer />
     </>
   )

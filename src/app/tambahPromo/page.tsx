@@ -98,12 +98,12 @@ export default function TambahPromo() {
   return (
     <>
       <NavbarAdmin />
-      <div className="bg-[#3C2A21] w-[500px] mx-auto rounded-xl">
-        <h1 className="text-center text-3xl text-white pt-10 font-bold">Tambah Promo</h1>
-        <div className="p-20">
+      <div className="bg-[#3C2A21] md:w-[500px] sm:w-[500px] w-[370px] mx-auto rounded-xl">
+        <h1 className="text-center md:text-3xl sm:text-xl text-lg text-white pt-10 font-bold">Tambah Promo</h1>
+        <div className="p-10 md:p-20 sm:p-20">
           <form onSubmit={(e)=>addData(e)} encType="multipart/form-data">
             <div>
-              <label htmlFor="username">Nama Promo : </label>
+              <label htmlFor="username" className="md:text-base sm:text-sm text-xs">Nama Promo : </label>
               <br />
               <input
                 required
@@ -116,7 +116,7 @@ export default function TambahPromo() {
               />
             </div>
            
-            <label htmlFor="w3review">Detail :</label>
+            <label htmlFor="w3review" className="md:text-base sm:text-sm text-xs">Detail :</label>
             <br />
             <textarea required placeholder="masukan detail..." className="text-black my-5 w-64" id="w3review" name="w3review" onChange={(e) => { setDetail(e.target.value) }}></textarea>
             <br />
@@ -124,16 +124,18 @@ export default function TambahPromo() {
             <br />
             <br />
             <p className="text-xs text-yellow-200 mb-2">*Tunggu input file selesai sebelum submit</p>
+            <p className="text-xs text-yellow-200 mb-2">Size gambar 1:1</p>
             {loading&&<Loading/>}
             <input id="file" name="file" type="file" required onChange={(files) => handleSelectedFile(files.target)} />
             <div className="flex items-center mt-3">
-              <button type="submit"  className="bg-neutral-400 px-4 py-2 rounded-lg mx-auto mt-6 hover:bg-neutral-600"  >
+              <button type="submit"  className="bg-neutral-400 px-4 py-2 rounded-lg mx-auto mt-6 hover:bg-neutral-600  md:text-base sm:text-sm text-xs"  >
                 Tambah Promo
               </button>
             </div>
           </form>
         </div>
       </div>
+      <div className="mt-24"></div>
       <Footer />
     </>
   )

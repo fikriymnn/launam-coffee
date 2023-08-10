@@ -16,12 +16,12 @@ const Contact = () => {
         <div className="px-6 sm:mx-auto  mx-auto">
           <Iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7921.514686891432!2d107.5722568!3d-6.9195864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e594afa5075b%3A0x8f922e9dae80264d!2sBarista%20Panggilan%20Bandung%20-%20LAUNAM%20COFFEE!5e0!3m2!1sid!2sid!4v1690445919955!5m2!1sid!2sid"
-            width="450"
+            width="400"
             height="400"
           />
         </div>
         <div className="sm:mx-auto sm:pt-9 md:pt-0 pt-0 ">
-          <form>
+          <form className="mx-auto px-9">
             <div class="mb-6 px-6 mx-auto">
               <label
                 for="Nama"
@@ -81,15 +81,15 @@ const Contact = () => {
                 required
                 placeholder="Masukan Pesan..."
               />
-            </div>
-            
-
             <button
               type="submit"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm md:w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-[500px] w-[350px]mx-auto p-6"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm md:w-full md:px-10 sm:px-5 px-3 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-[500px] w-[350px] mx-auto mt-9 "
             >
               Submit
             </button>
+            </div>
+            
+
           </form>
         </div>
       </div>

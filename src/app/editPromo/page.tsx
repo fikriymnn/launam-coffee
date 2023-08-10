@@ -123,12 +123,12 @@ export default function EditPromo() {
   return (
     <>
       <NavbarAdmin />
-      <div className="bg-[#3C2A21] w-[500px] mx-auto rounded-xl">
-        <h1 className="text-center text-3xl text-white pt-10 font-bold">Edit Promo</h1>
-        <div className="p-20">
+      <div className="bg-[#3C2A21] md:w-[500px] sm:w-[500px] w-[370px] mx-auto rounded-xl">
+        <h1 className="text-center md:text-3xl sm:text-xl text-lg text-white pt-10 font-bold">Edit Promo</h1>
+        <div className="p-10 md:p-20 sm:p-20">
           <form  onSubmit={(e)=>update(e)} encType="multipart/form-data">
             <div>
-              <label htmlFor="username">Edit Promo : </label>
+              <label htmlFor="username" className="md:text-base sm:text-sm text-xs">Edit Promo : </label>
               <br />
               <input
                 value={text || ""}
@@ -142,24 +142,25 @@ export default function EditPromo() {
               />
             </div>
            
-            <label htmlFor="w3review">Detail :</label>
+            <label htmlFor="w3review" className="md:text-base sm:text-sm text-xs">Detail :</label>
             <br />
             <textarea value={detail || ""} required placeholder="masukan detail..." className="text-black my-5 w-64" id="w3review" name="w3review" onChange={(e) => { setDetail(e.target.value) }}></textarea>
             <br />
-            <label htmlFor="file">Image :</label>
+            <label htmlFor="file" className="md:text-base sm:text-sm text-xs">Image :</label>
             <br />
             <br />
             <p className="text-xs text-yellow-200 mb-2">*Input file terbaru untuk memperbarui</p>
             {loading&&<Loading/>}
             <input id="file" name="file" type="file"  onChange={(files) => handleSelectedFile(files.target)} />
             <div className="flex items-center mt-3">
-              <button type="submit"  className="bg-neutral-400 px-4 py-2 rounded-lg mx-auto mt-6 hover:bg-neutral-600"  >
+              <button type="submit"  className="bg-neutral-400 px-4 py-2 rounded-lg mx-auto mt-6 hover:bg-neutral-600 md:text-base sm:text-sm text-xs" >
                 Edit Promo
               </button>
             </div>
           </form>
         </div>
       </div>
+      <div className="mt-24"></div>
       <Footer />
     </>
   )

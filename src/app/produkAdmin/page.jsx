@@ -50,19 +50,19 @@ export default function ProdukAdmin() {
 
       <div className="h-screen">
         <NavbarAdmin />
-        <blockquote className="text-[40px] font-bold text-center text-gray-900 ">
+        <blockquote className="md:text-[40px] sm:text-[30px] text-[20px] font-bold text-center text-gray-900 ">
           <p>Dashboard Produk</p>
           <hr className="h-1 w-2/5 mb-16 mt-6 bg-black m-auto item-center border-black" />
         </blockquote>
         <div className="flex items-center">
-          <div className="bg-[#3C2A21] rounded w-64 mx-auto mb-10 hover:bg-[#ffc36fa4]">
-            <Link className="text-center px-10 my-16 m-auto text-xl text-white font-bold" href={'/tambahProduk'}> Tambah Produk</Link>
+          <div className="bg-[#3C2A21] rounded md:w-64 sm:w-40 w-36 mb-10 flex items-center mx-auto hover:bg-[#ffc36fa4]">
+            <Link className="text-center md:px-10 sm:px-2 px-1 my-1 md:my-5 sm:my-2 mx-auto md:text-xl  sm:text-[13px] text-xs text-[#FFC26F] font-bold" href={'/tambahProduk'}>Tambah Produk</Link>
           </div>
         </div>
 
 
 
-        <div className="grid grid-cols-3 justify-items-center gap-10">
+        <div className="md:mt-20 sm:mt-16 mt-10 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-2 justify-items-center">
           {data.length > 0 && data.map((data, i) => {
 
             // eslint-disable-next-line react/jsx-key
@@ -76,7 +76,7 @@ export default function ProdukAdmin() {
         <CardCoffeeAdmin src={"./assets/americano.gltf"} />
         <CardCoffeeAdmin src={"./assets/botolkopi.gltf"} /> */}
         </div>
-        <div className="h-6/12"></div>
+        <div className="h-6/12 mt-20"></div>
         <Footer />
       </div>
 

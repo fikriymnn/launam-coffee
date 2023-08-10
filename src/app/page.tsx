@@ -42,8 +42,8 @@ export default function home() {
 
         <div>
           <div className="w-full h-full mb-16 mt-5 justify-center col-start-2 text-center">
-            <p className='md:text-5xl sm:text-4xl text-3xl font-bold text-[#FFC26F]'>Top Menu.</p>
-            <p className='md:text-4xl sm:text-3xl text-[#FFC26F]'>Menu andalan kami di Launam Coffee.</p>
+            <p className='md:text-5xl sm:text-4xl text-3xl font-bold text-[#FFC26F]'>Menu Terbaru.</p>
+            <p className='md:text-4xl sm:text-3xl text-[#FFC26F]'>Menu terbaru kami di Launam Coffee.</p>
           </div>
           <div className='flex justify-evenly'>
           <CardCofee key={1} id={1} obj={'/assets/botolkopi.gltf'} nama={'Americano'} detail={'asdkasd asdasdas sadasde rgretger grergd sdfsdfsdf'} harga={'Rp.30000'}/>

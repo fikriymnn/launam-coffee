@@ -42,13 +42,13 @@ export default function CardCoffeeAdmin({ src, name, harga, deskripsi, id }) {
             scale: 1,
             speed: 450,
           }}
-          className="p-5 h-92 rounded-2xl sm:w-[360px] w-full bg-[#3C2A21]"
+          className="md:p-5 sm:p-4 p-3  rounded-2xl sm:w-[200px] md:w-[350px] w-[120px]  bg-[#3C2A21]"
         >
           <div className="" key={id}>
-            <h3 className="text-[#ffdcd2] font-bold text-[24px]">{name}</h3>
+            <h3 className="text-[#ffdcd2] font-bold md:text-[21px] sm:text-[16px] text-[10px]">{name}</h3>
           </div>
-          <div className="mt-5"></div>
-          <div className="bg-[#ffdcd2] w-full mb-5 rounded-lg pt-5 h-56">
+          <div className="md:mt-5 sm:mt-[10px] mb-[5px]"></div>
+          <div className="bg-[#d6a764] w-full  md:mb-5 sm:mb-[10px] mb-[5px] rounded-lg pt-5 md:h-56 sm:h-28 h-16">
             <Canvas
               shadows
               frameloop="demand"
@@ -80,11 +80,11 @@ export default function CardCoffeeAdmin({ src, name, harga, deskripsi, id }) {
 
           <a
             href={`/editProduk?id=${id}&nama=${name}&detail=${deskripsi}&harga=${harga}`}
-            class="text-black dark:border-gray-600 bg-white hover:bg-gray-200 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 "
+            class="text-black dark:border-gray-600 bg-white hover:bg-gray-200 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg md:text-sm sm:text-[10px] text-[7px] md:px-5 sm:px-3 px-1 md:py-2.5 sm:py-1 py-0.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 "
           >
             Edit
           </a>
-          <button onClick={deleteProd} className="text-black dark:border-gray-600 bg-white hover:bg-gray-200 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"  >
+          <button onClick={deleteProd} className="text-black dark:border-gray-600 bg-white hover:bg-gray-200 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg md:text-sm sm:text-[10px] text-[7px] md:px-5 sm:px-3 px-1 md:py-2.5 sm:py-1 py-0.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"  >
             Delete
           </button>
 

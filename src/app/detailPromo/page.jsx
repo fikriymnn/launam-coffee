@@ -43,16 +43,16 @@ export default function DetailPromo({ searchParams }) {
 
             <Navbar />
             <div className="h-screen">
-                <blockquote class="text-[40px] font-bold text-center text-[#FFC26F] ">
+                <blockquote class="md:text-[40px] sm:text-[25px] text-[15px] font-bold text-center text-[#FFC26F] ">
                     <p>Detail Promo</p>
                     <hr className="w-2/5 mb-16 mt-6 bg-white m-auto h-1 item-center border-white" />
                 </blockquote>
                 {data.length > 0 && data.map((data, i) => {
                     return (
-                        <div className=" mx-56 p-10 bg-[#3C2A21] rounded-xl" key={i}>
+                        <div className=" md:w-[800px] mx-auto sm:w-[450px] w-[300px] md:p-10 sm:p-8 p-4 bg-[#3C2A21] rounded-xl" key={i}>
                             <Image src={data.assets} width={800} height={100} alt="promo image" className="mx-auto" />
-                            <p className="text-center text-[#FFC26F] text-xl my-10">
-                                <p className="text-center text-[#FFC26F] text-3xl my-8 font-bold">
+                            <p className="text-center text-[#FFC26F] md:text-xl sm:text-lg text-xs md:my-10 my-6">
+                                <p className="text-center text-[#FFC26F] md:text-3xl sm:xl text-sm my-4 md:my-8 font-bold">
                                     {data.text}
                                 </p>
                                 {data.detail}
@@ -60,7 +60,7 @@ export default function DetailPromo({ searchParams }) {
                         </div>
                     )
                 })}
-
+<div className="mt-28 md:mt-0 sm:mt-0"></div>
                 <Footer />
             </div>
 
