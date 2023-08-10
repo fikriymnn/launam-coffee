@@ -1,7 +1,26 @@
 import Image from "next/image";
 import React from "react";
+import {
+  onAuthStateChanged,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+} from 'firebase/auth'
+import { auth } from '../../lib/firebase/page'
+import { useRouter } from "next/navigation";
 
 export default function NavbarAdmin() {
+  const { push } = useRouter();
+  const logout = async () => {
+    signOut(auth)
+    localStorage.removeItem("auth")
+    localStorage.clear()
+    push("/")
+    
+   
+
+
+  };
   return (
     <nav className=" border-gray-200 bg-transparent">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -28,12 +47,25 @@ export default function NavbarAdmin() {
             <li>
               <a
                 href="/promoAdmin"
+                
                 className="font-bold block py-2 pl-3 pr-4 text-gray-900 rounded bg-transparent md:border-0 md:hover:text-white md:p-0  dark:hover:text-white"
               >
                 Promo
               </a>
             </li>
+            <li>
+              <a
+               onClick={logout}
+                
+                className=" cursor-pointer font-bold block py-2 pl-3 pr-4 text-gray-900 rounded bg-transparent md:border-0 md:hover:text-white md:p-0  dark:hover:text-white"
+              >
+                Logout
+              </a>
+            </li>
+           
+           
           </ul>
+          
         </div>
       </div>
     </nav>

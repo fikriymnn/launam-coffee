@@ -12,11 +12,13 @@ import CardPromo from '@/components/CardPromo';
 import { CoffeeCepukCanvas, CoffeeCepuk } from "@/components/canvas/coffee_cepuk";
 import Navbar from '@/components/Navbar';
 import CardCofee from '@/components/CardCoffe'
+import { AuthContextProvider } from "../components/authService";
 
 
 export default function home() {
   return (
     <>
+    <AuthContextProvider>
       <Navbar />
       <div className="h-[600px] sm:h-screen md:h-screen py-5 md:py-20 text-indigo-100 z-10 relative">
 
@@ -69,6 +71,7 @@ export default function home() {
         <Footer />
 
       </div >
+      </AuthContextProvider>
 
 
     </>

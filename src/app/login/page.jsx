@@ -19,8 +19,11 @@ export default function Admin() {
   const onSubmit = async (e) => {
     // await logIn(email, password);
     // router.push("/produkAdmin");
+    // await logIn(email, password);
+    //   router.push("/produkAdmin");
     signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
       console.log(userCredential.user);
+      localStorage.setItem('auth', "22gg12js");
       push("/produkAdmin")
     }).catch((error) => {
       const errorCode = error.code;

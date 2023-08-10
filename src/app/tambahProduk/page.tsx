@@ -11,7 +11,7 @@ import { db, storage } from '../../../lib/firebase/page'
 
 import { useRouter } from 'next/navigation';
 import { useEffect, useContext } from "react";
-
+import ProtectedRoute from "../../components/auth";
 
 
 
@@ -141,6 +141,7 @@ export default function TambahProduk() {
   };
   return (
     <>
+   
       <NavbarAdmin />
       <div className="bg-[#3C2A21] w-[500px] mx-auto rounded-xl">
         <h1 className="text-center text-3xl text-white pt-10 font-bold">Tambah Produk</h1>
@@ -191,6 +192,7 @@ export default function TambahProduk() {
         </div>
       </div>
       <Footer />
+     
     </>
   )
 }
