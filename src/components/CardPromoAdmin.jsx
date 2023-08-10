@@ -29,22 +29,22 @@ export default function CardPromoAdmin({src,text,detail,id}){
           }}
          
         >
-        <div className="bg-[#3C2A21] w-[360px] rounded-lg">
+        <div className="bg-[#3C2A21] md:h-[455px] sm:h-[260px] h-[155px] md:w-[360px] sm:w-[200px] w-[120px] rounded-lg">
         <Image className="w-full m-auto rounded-lg" src={src} width={180} height={180} />
         <div className="flex justify-center">
             <div className="h-[80px]">
-            <h1 className="text-base text-white font-bold p-5 text-center">{text}</h1>
+            <h1 className="md:text-base sm:text-xs text-[6px] text-white font-bold md:p-5 sm:p-2 p-1 sm:mt-2 mt-1 text-center">{text}</h1>
             </div>
         
         </div>
         <div className="ml-5 pb-4">
         <a
             href={`/editPromo?id=${id}&text=${text}&detail=${detail}`}
-            class="text-black dark:border-gray-600 bg-white hover:bg-gray-200 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 "
+            class="text-black dark:border-gray-600 bg-white hover:bg-gray-200 focus:ring-4 focus:ring-blue-300 font-medium md:rounded-lg sm:rounded-sm rounded-xs  md:text-sm sm:text-[10px] text-[7px] md:px-5 sm:px-3 px-1 md:py-2.5 sm:py-1 py-0.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 "
           >
             Edit
           </a>
-          <button onClick={deleteProd} className="text-black dark:border-gray-600 bg-white hover:bg-gray-200 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"  >
+          <button onClick={deleteProd} className="text-black dark:border-gray-600 bg-white hover:bg-gray-200 focus:ring-4 focus:ring-blue-300 font-medium md:rounded-lg sm:rounded-sm rounded-xs md:text-sm sm:text-[10px] text-[7px] md:px-5 sm:px-3 px-1 md:py-2.5 sm:py-1 py-0.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"  >
             Delete
           </button>
         </div>
