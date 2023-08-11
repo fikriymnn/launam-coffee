@@ -17,41 +17,41 @@ const DetailMenu = ({ searchParams }) => {
   const [data, setData] = useState([])
 
   useEffect(() => {
-
+    const getData = async () => {
+      try {
+        const docRef = doc(db, "produk", searchParams.id);
+        const querySnapshot = await getDoc(docRef);
+        let data = [];
+        console.log(querySnapshot)
+        if (querySnapshot.exists()) {
+          console.log("Document data:", querySnapshot.data());
+          data.push({ ...querySnapshot.data(), id: querySnapshot.id })
+        } else {
+          // docSnap.data() will be undefined in this case
+          console.log("No such document!");
+        }
+  
+  
+        setData(data)
+      } catch (error) {
+        alert(error)
+      }
+  
+    }
 
     getData()
 
 
-  }, [data.length])
-  const getData = async () => {
-    try {
-      const docRef = doc(db, "produk", searchParams.id);
-      const querySnapshot = await getDoc(docRef);
-      let data = [];
-      console.log(querySnapshot)
-      if (querySnapshot.exists()) {
-        console.log("Document data:", querySnapshot.data());
-        data.push({ ...querySnapshot.data(), id: querySnapshot.id })
-      } else {
-        // docSnap.data() will be undefined in this case
-        console.log("No such document!");
-      }
+  }, [])
 
-
-      setData(data)
-    } catch (error) {
-      alert(error)
-    }
-
-  }
   return (
     <>
       <Navbar />
       <section>
         <div>
-          {data.length > 0 && data.map((data, i) => {
+          { data.map((data, i) => {
             return (
-              <div className="h-screen text-indigo-100" key={1}>
+              <div className="h-screen text-indigo-100" key={i}>
                 <div className="h-full container mx-auto md:flex md:items-center md:justify-between sm:grid sm:grid-cols-2 grid grid-cols-1 justify-items-center">
                   <div className="w-full h-full md:w-1/2 mb-8 md:mb-0  sm:mr-0 md:mr-32 sm:ml-14  md:mt-0 mt-10 md:ml-40  justify-center">
                     <h2 className="md:text-5xl md:mt-10 sm:text-3xl text-2xl text-center mx-auto font-bold text-[#FFC26F]">
