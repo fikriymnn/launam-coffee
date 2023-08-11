@@ -11,7 +11,7 @@ import Navbar from "@/components/Navbar";
 import { collection, addDoc, getDocs, where, query, deleteDoc, updateDoc, doc, Firestore, documentId, getDoc } from "firebase/firestore";
 import { db, storage } from '../../../lib/firebase/page'
 
-export const getData = async (searchParams) => {
+const getData = async (searchParams) => {
   let data;
   try {
    
