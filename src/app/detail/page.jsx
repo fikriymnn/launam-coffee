@@ -36,7 +36,7 @@ import { db, storage } from '../../../lib/firebase/page'
     
 }
 
-const DetailMenu = async ({ searchParams }) => {
+export default async function DetailMenu ({ searchParams }){
 
   let data = await getData(searchParams.id)
   console.log(data)
@@ -73,4 +73,4 @@ const DetailMenu = async ({ searchParams }) => {
   );
 };
 
-export default DetailMenu;
+
