@@ -47,7 +47,7 @@ export default function DetailPromo({ searchParams }) {
                     <p>Detail Promo</p>
                     <hr className="w-2/5 mb-16 mt-6 bg-white m-auto h-1 item-center border-white" />
                 </blockquote>
-                {data.length > 0 && data.map((data, i) => {
+                {data && data.map((data, i) => {
                     return (
                         <div className=" md:w-[800px] mx-auto sm:w-[450px] w-[300px] md:p-10 sm:p-8 p-4 bg-[#3C2A21] rounded-xl" key={i}>
                             <Image src={data.assets} width={800} height={100} alt="promo image" className="mx-auto" />
