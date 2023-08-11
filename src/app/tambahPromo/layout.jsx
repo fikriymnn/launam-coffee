@@ -1,7 +1,7 @@
 "use client"
 import { useRouter } from "next/navigation";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-
+import { redirect } from 'next/navigation'
 
 export default function Layout({
     children
@@ -13,7 +13,7 @@ export default function Layout({
      
     return (
       <>
-      {check=="22gg12js"?children:push({pathname:"/"})}
+      {check=="22gg12js"?children:redirect("/")}
       </>
     )
   }

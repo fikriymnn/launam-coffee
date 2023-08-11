@@ -1,6 +1,6 @@
 "use client"
 import { useRouter } from "next/navigation";
-
+import { redirect } from 'next/navigation'
 
 
 export default function Layout({
@@ -13,7 +13,7 @@ export default function Layout({
      
     return (
       <>
-      {check=="22gg12js"?children:push("/")}
+      {check=="22gg12js"?children:redirect("/")}
       </>
     )
   }
