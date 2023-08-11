@@ -15,7 +15,7 @@ const getData = async (searchParams) => {
   let data;
   try {
    
-    const docRef = doc(db, "produk", searchParams.id);
+    const docRef = doc(db, "produk", searchParams);
     const querySnapshot = await getDoc(docRef);
    
     console.log(querySnapshot)
@@ -38,7 +38,7 @@ const getData = async (searchParams) => {
 
 const DetailMenu = async ({ searchParams }) => {
 
-  let data = await getData(searchParams)
+  let data = await getData(searchParams.id)
   console.log(data)
   return (
     <>
