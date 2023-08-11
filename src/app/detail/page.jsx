@@ -11,11 +11,11 @@ import Navbar from "@/components/Navbar";
 import { collection, addDoc, getDocs, where, query, deleteDoc, updateDoc, doc, Firestore, documentId, getDoc } from "firebase/firestore";
 import { db, storage } from '../../../lib/firebase/page'
 
- async function getData(searchParams){
+ async function getData(id){
   let data;
   try {
    
-    const docRef = doc(db, "produk", searchParams);
+    const docRef = doc(db, "produk", id);
     const querySnapshot = await getDoc(docRef);
    
     console.log(querySnapshot)
