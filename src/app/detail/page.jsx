@@ -14,7 +14,7 @@ import { useEffect, useState, } from "react";
 
 const DetailMenu = ({ searchParams }) => {
 
-  const [data, setData] = useState([])
+  const [data, setData] = useState([""])
 
   useEffect(() => {
     const getData = async () => {
