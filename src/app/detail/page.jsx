@@ -21,18 +21,19 @@ const DetailMenu = ({ searchParams }) => {
       try {
         const docRef = doc(db, "produk", searchParams.id);
         const querySnapshot = await getDoc(docRef);
-        let data = [];
+       
         console.log(querySnapshot)
         if (querySnapshot.exists()) {
           console.log("Document data:", querySnapshot.data());
-          data.push({ ...querySnapshot.data(), id: querySnapshot.id })
+          setData({ ...querySnapshot.data(), id: querySnapshot.id })
+          console.log(data)
         } else {
           // docSnap.data() will be undefined in this case
           console.log("No such document!");
         }
   
   
-        setData(data)
+        
       } catch (error) {
         alert(error)
       }
