@@ -18,7 +18,7 @@ import { db, storage } from '../../lib/firebase/page'
 import { useEffect, useState, } from "react";
 
 
-export default function home() {
+export default function Home() {
   const [data, setData] = useState([])
   const [data2, setData2] = useState([])
 
