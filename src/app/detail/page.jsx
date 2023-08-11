@@ -1,4 +1,4 @@
-"use client"
+
 import Footer from "@/components/Footer";
 import React from "react";
 import ObjectDetail from "@/components/ObjectDetail";
@@ -10,41 +10,36 @@ import { StarsCanvas, Stars } from "../../components/canvas/beans";
 import Navbar from "@/components/Navbar";
 import { collection, addDoc, getDocs, where, query, deleteDoc, updateDoc, doc, Firestore, documentId, getDoc } from "firebase/firestore";
 import { db, storage } from '../../../lib/firebase/page'
-import { useEffect, useState, } from "react";
 
-const DetailMenu = ({ searchParams }) => {
-
-  const [data, setData] = useState({})
-
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const docRef = doc(db, "produk", searchParams.id);
-        const querySnapshot = await getDoc(docRef);
-       
-        console.log(querySnapshot)
-        if (querySnapshot.exists()) {
-          console.log("Document data:", querySnapshot.data());
-          setData({ ...querySnapshot.data(), id: querySnapshot.id })
-          console.log(data)
-        } else {
-          // docSnap.data() will be undefined in this case
-          console.log("No such document!");
-        }
-  
-  
-        
-      } catch (error) {
-        alert(error)
-      }
-  
+export const getData = async (searchParams) => {
+  let data;
+  try {
+   
+    const docRef = doc(db, "produk", searchParams.id);
+    const querySnapshot = await getDoc(docRef);
+   
+    console.log(querySnapshot)
+    if (querySnapshot.exists()) {
+      console.log("Document data:", querySnapshot.data());
+      data = { ...querySnapshot.data(), id: querySnapshot.id }
+      
+    } else {
+      // docSnap.data() will be undefined in this case
+      console.log("No such document!");
     }
+    console.log(data)
+    
+  } catch (error) {
+   console.log(error)
+  }
+  return data
+    
+}
 
-    getData()
+const DetailMenu = async ({ searchParams }) => {
 
-
-  }, [])
-
+  let data = await getData(searchParams)
+  console.log(data)
   return (
     <>
       <Navbar />
