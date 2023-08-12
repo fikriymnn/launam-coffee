@@ -39,7 +39,8 @@
     "src/app/tambahProduk/page.tsx",
     "src/app/editProduk/page.tsx",
     "src/app/produkAdmin/page.tsx",
-    "src/app/contact/page.jsx"
+    "src/app/contact/page.jsx",
+    "src/app/detail/page.jsx"
   ],
   "exclude": [
     "node_modules"
