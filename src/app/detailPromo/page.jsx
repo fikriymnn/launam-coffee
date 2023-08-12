@@ -12,28 +12,24 @@ export default function DetailPromo({ searchParams }) {
     useEffect(() => {
 
 
-        getData(searchParams.id)
+        getData()
 
 
-    }, [])
-    const getData = async (id) => {
-
-
-        const querySnapshot = await getDoc(doc(db, "promo", id));
-
-        let data = [];
-        console.log(querySnapshot.data())
-        if (querySnapshot) {
-            console.log("Document data:", querySnapshot.data());
-            data.push({ ...querySnapshot.data(), id: querySnapshot.id })
+    }, [data.length])
+    const getData = async () => {
+        try {
+            const querySnapshot = await getDocs(collection(db, "promo"));
+            let data = [];
+            console.log(querySnapshot)
+            querySnapshot.forEach((doc) => {
+                // doc.data() is never undefined for query doc snapshots
+                console.log(doc.id, " => ", doc.data());
+                data.push({ ...doc.data(), id: doc.id })
+            });
             setData(data)
-        } else {
-            // docSnap.data() will be undefined in this case
-            console.log("No such document!");
+        } catch (error) {
+            alert(error)
         }
-
-
-
 
     }
 
@@ -47,18 +43,21 @@ export default function DetailPromo({ searchParams }) {
                     <hr className="w-2/5 mb-16 mt-6 bg-white m-auto h-1 item-center border-white" />
                 </blockquote>
                 {data.map((data, i) => {
-                    return (
-                        <div className=" md:w-[800px] mx-auto sm:w-[450px] w-[300px] md:p-10 sm:p-8 p-4 bg-[#3C2A21] rounded-xl" key={i}>
-                            <Image src={data.assets} width={800} height={100} alt="promo image" className="mx-auto" />
-                            <p className="text-center text-[#FFC26F] md:text-xl sm:text-lg text-xs md:my-10 my-6">
-                                <p className="text-center text-[#FFC26F] md:text-3xl sm:xl text-sm my-4 md:my-8 font-bold">
-                                    {data.text}
-                                </p>
+                    if (data.id == searchParams.id) {
+                        return (
+                            <div className=" md:w-[800px] mx-auto sm:w-[450px] w-[300px] md:p-10 sm:p-8 p-4 bg-[#3C2A21] rounded-xl" key={i}>
+                                <Image src={data.assets} width={800} height={100} alt="promo image" className="mx-auto" />
+                                <p className="text-center text-[#FFC26F] md:text-xl sm:text-lg text-xs md:my-10 my-6">
+                                    <p className="text-center text-[#FFC26F] md:text-3xl sm:xl text-sm my-4 md:my-8 font-bold">
+                                        {data.text}
+                                    </p>
 
-                                {data.detail}
-                            </p>
-                        </div>
-                    )
+                                    {data.detail}
+                                </p>
+                            </div>
+                        )
+                    }
+
                 })}
                 <div className="mt-28 md:mt-0 sm:mt-0"></div>
                 <Footer />
