@@ -18,8 +18,8 @@ export default function DetailPromo({ searchParams }) {
     }, [data.length])
     const getData = async () => {
         try {
-            const docRef = doc(db, "promo", searchParams.id);
-            const querySnapshot = await getDoc(docRef);
+
+            const querySnapshot = await getDoc(doc(db, "promo", searchParams.id));
             let data = [];
             console.log(querySnapshot)
             if (querySnapshot) {

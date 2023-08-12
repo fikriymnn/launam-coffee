@@ -28,8 +28,8 @@ export default function DetailMenu({ searchParams }) {
   }, [data.length])
   const getData = async () => {
     try {
-      const docRef = doc(db, "produk", searchParams.id);
-      const querySnapshot = await getDoc(docRef);
+
+      const querySnapshot = await getDoc(doc(db, "produk", searchParams.id));
       let data = [];
       console.log(querySnapshot)
       if (querySnapshot) {

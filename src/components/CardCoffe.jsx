@@ -23,7 +23,7 @@ export default function CardCoffee({ obj, nama, harga, detail, id, key }) {
             scale: 1,
             speed: 450,
           }}
- 
+
           key={key}
           className="md:p-5 sm:p-4 p-3  rounded-2xl sm:w-[200px] md:w-full w-[120px]  bg-[#3C2A21]"
         >
@@ -63,11 +63,11 @@ export default function CardCoffee({ obj, nama, harga, detail, id, key }) {
 
           <div className="grid grid-cols-3">
 
-          <p className="text-white md:my-5 sm:my-3 my-2 font-bold sm:text-base md:text-xl text-[7px]">
-           {harga}
-          </p>
-          <div></div>
-          <a  href={`/detail?id=${id}`} className="text-[#884A39] font-medium rounded-lg md:text-sm sm:text-[15px] text-[6px] m-auto md:px-5 md:py-2 sm:py-[5px] sm:px-[10px] py-[2px] px-[5px] bg-white hover:bg-slate-400 ">Detail</a>
+            <p className="text-white md:my-5 sm:my-3 my-2 font-bold sm:text-base md:text-xl text-[7px]">
+              {harga}
+            </p>
+            <div></div>
+            <a href={`/detail?id=${id}`} className="text-[#884A39] font-medium rounded-lg md:text-sm sm:text-[15px] text-[6px] m-auto md:px-5 md:py-2 sm:py-[5px] sm:px-[10px] py-[2px] px-[5px] bg-white hover:bg-slate-400 ">Detail</a>
 
 
           </div>
