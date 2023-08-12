@@ -62,7 +62,7 @@ export default function DetailMenu({ searchParams }) {
                         data.namaProd}
                     </h2>
                     <h2 className="md:text-2xl sm:text-xl text-xs mt-5 text-center font-bold text-[#FFC26F]">
-                      Rp. {data.harga}
+                      {data.harga}
                     </h2>
                     <p className="md:text-base sm:text-sm text-xs text-center mt-10 text-[#FFC26F]">
                       {data.detail}
