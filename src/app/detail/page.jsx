@@ -22,26 +22,27 @@ export default function DetailMenu({ searchParams }) {
   useEffect(() => {
 
 
-    getData()
+    getData(searchParams.id)
 
 
-  }, [data.length])
-  const getData = async () => {
+  }, [])
+  const getData = async (id) => {
     try {
 
-      const querySnapshot = await getDoc(doc(db, "produk", searchParams.id));
+      const querySnapshot = await getDoc(doc(db, "produk", id));
       let data = [];
       console.log(querySnapshot)
       if (querySnapshot) {
         console.log("Document data:", querySnapshot.data());
         data.push({ ...querySnapshot.data(), id: querySnapshot.id })
+        setData(data)
       } else {
         // docSnap.data() will be undefined in this case
         console.log("No such document!");
       }
 
 
-      setData(data)
+
     } catch (error) {
       alert(error)
     }
