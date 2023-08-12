@@ -71,9 +71,7 @@ export default function DetailMenu({ searchParams }) {
                 </div>
               )
             } else {
-              return (
-                <p>hhhhh</p>
-              )
+              return;
             }
 
           })
