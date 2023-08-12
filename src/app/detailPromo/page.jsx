@@ -22,10 +22,13 @@ export default function DetailPromo({ searchParams }) {
             const querySnapshot = await getDoc(docRef);
             let data = [];
             console.log(querySnapshot)
-
-            console.log("Document data:", querySnapshot.data());
-            data.push({ ...querySnapshot.data(), id: querySnapshot.id })
-
+            if (querySnapshot) {
+                console.log("Document data:", querySnapshot.data());
+                data.push({ ...querySnapshot.data(), id: querySnapshot.id })
+            } else {
+                // docSnap.data() will be undefined in this case
+                console.log("No such document!");
+            }
 
 
             setData(data)
@@ -44,7 +47,7 @@ export default function DetailPromo({ searchParams }) {
                     <p>Detail Promo</p>
                     <hr className="w-2/5 mb-16 mt-6 bg-white m-auto h-1 item-center border-white" />
                 </blockquote>
-                {data && data.map((data, i) => {
+                {data.map((data, i) => {
                     return (
                         <div className=" md:w-[800px] mx-auto sm:w-[450px] w-[300px] md:p-10 sm:p-8 p-4 bg-[#3C2A21] rounded-xl" key={i}>
                             <Image src={data.assets} width={800} height={100} alt="promo image" className="mx-auto" />

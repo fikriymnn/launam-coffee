@@ -32,10 +32,13 @@ export default function DetailMenu({ searchParams }) {
       const querySnapshot = await getDoc(docRef);
       let data = [];
       console.log(querySnapshot)
-
-      console.log("Document data:", querySnapshot.data());
-      data.push({ ...querySnapshot.data(), id: querySnapshot.id })
-
+      if (querySnapshot) {
+        console.log("Document data:", querySnapshot.data());
+        data.push({ ...querySnapshot.data(), id: querySnapshot.id })
+      } else {
+        // docSnap.data() will be undefined in this case
+        console.log("No such document!");
+      }
 
 
       setData(data)
@@ -49,7 +52,7 @@ export default function DetailMenu({ searchParams }) {
       <Navbar />
       <section>
         <div>
-          {data && data.map((data, i) => {
+          {data.map((data, i) => {
 
             return (
               <div className="h-screen text-indigo-100" key={i}>

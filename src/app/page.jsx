@@ -87,7 +87,7 @@ export default function Home() {
         <div className="h-full  mx-auto md:flex md:items-center md:justify-between">
           <div className="w-full mt-20 sm:mb-10 mb-20 md:h-full md:w-1/2 md:mb-0 md:ml-16 sm:mt-10  md:mt-48  text-center">
             <p className='md:text-5xl sm:text-4xl text-3xl font-bold text-[#FFC26F]'>Kedai Kopi Launam.</p>
-            <p className='md:text-4xl sm:text-3xl text-[#FFC26F]'>Menyediakan Berbagai Kopi.</p>
+            <p className='md:text-4xl sm:text-3xl text-[#FFC26F]'>Menyediakan Berbagai Kopi</p>
           </div>
           <div className="w-3/4  mt-10 sm:h-3/4 sm:w-3/4 mx-auto h-3/5 sm:mx-auto md:h-full">
             <CoffeeCanvas />
