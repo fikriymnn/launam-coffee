@@ -15,7 +15,7 @@ export default function DetailPromo({ searchParams }) {
         getData()
 
 
-    }, [data.length])
+    }, [])
     const getData = async () => {
         try {
             const docRef = doc(db, "promo", searchParams.id);

@@ -25,7 +25,7 @@ export default function DetailMenu({ searchParams }) {
     getData()
 
 
-  }, [data.length])
+  }, [])
   const getData = async () => {
     try {
       const docRef = doc(db, "produk", searchParams.id);
