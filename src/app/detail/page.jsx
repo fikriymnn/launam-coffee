@@ -47,7 +47,7 @@ export default function DetailMenu({ searchParams }) {
       <Navbar />
       <section>
         <div>
-          {data.map((data, i) => {
+          {data && data.map((data, i) => {
             if (data.id == searchParams.id) {
               return (
                 <div className="h-screen text-indigo-100" key={i}>
