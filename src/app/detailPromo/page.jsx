@@ -22,13 +22,10 @@ export default function DetailPromo({ searchParams }) {
             const querySnapshot = await getDoc(docRef);
             let data = [];
             console.log(querySnapshot)
-            if (querySnapshot) {
-                console.log("Document data:", querySnapshot.data());
-                data.push({ ...querySnapshot.data(), id: querySnapshot.id })
-            } else {
-                // docSnap.data() will be undefined in this case
-                console.log("No such document!");
-            }
+
+            console.log("Document data:", querySnapshot.data());
+            data.push({ ...querySnapshot.data(), id: querySnapshot.id })
+
 
 
             setData(data)
