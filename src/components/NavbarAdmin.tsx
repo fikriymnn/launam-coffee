@@ -10,6 +10,7 @@ import { auth } from '../../lib/firebase/page'
 import { useRouter } from "next/navigation";
 import { Navbar } from "flowbite-react";
 
+
 export default function NavbarAdmin() {
   const { push } = useRouter();
   const logout = async () => {
@@ -17,38 +18,43 @@ export default function NavbarAdmin() {
     localStorage.removeItem("auth")
     localStorage.clear()
     push("/")
-    
-   
+
+
 
 
   };
+
+
   return (
     <Navbar
-    fluid
-    rounded
-    className="border-gray-200 bg-transparent"
-  >
-    <Navbar.Brand                                                                                                                                                                 
-      
-      href="/"
+      fluid
+      rounded
+      className="border-gray-200 bg-transparent"
     >
-      <Image src="/assets/logo1.png" width={50} height={50} className="mr-3" alt="Logo" />
-     
-    </Navbar.Brand>
-    <Navbar.Toggle />
-    <Navbar.Collapse>
-      
-      <Navbar.Link href="/produkAdmin" className='font-bold block py-2 pl-3 pr-4 text-[#FFC26F] rounded bg-transparent md:border-0 md:hover:text-white md:p-0  dark:hover:text-white'>
-        Produk
-      </Navbar.Link>
-      <Navbar.Link href="/promoAdmin" className='font-bold block py-2 pl-3 pr-4 text-[#FFC26F] rounded bg-transparent md:border-0 md:hover:text-white md:p-0  dark:hover:text-white'>
-        Promo
-      </Navbar.Link>
-      <Navbar.Link href="#" onClick={logout} className='font-bold block py-2 pl-3 pr-4 text-[#FFC26F] rounded bg-transparent md:border-0 md:hover:text-white md:p-0  dark:hover:text-white'>
-        Logout
-      </Navbar.Link>
-    </Navbar.Collapse>
-  </Navbar>
+      <Navbar.Brand
+
+        href="/"
+      >
+        <Image src="/assets/logo1.png" width={50} height={50} className="mr-3" alt="Logo" />
+
+      </Navbar.Brand>
+      <Navbar.Toggle />
+      <Navbar.Collapse>
+
+        <Navbar.Link href="/produkAdmin" className='font-bold block py-2 pl-3 pr-4 text-[#FFC26F] rounded bg-transparent md:border-0 md:hover:text-white md:p-0  dark:hover:text-white'>
+          Produk
+        </Navbar.Link>
+        <Navbar.Link href="/promoAdmin" className='font-bold block py-2 pl-3 pr-4 text-[#FFC26F] rounded bg-transparent md:border-0 md:hover:text-white md:p-0  dark:hover:text-white'>
+          Promo
+        </Navbar.Link>
+        <Navbar.Link href="https://analytics.google.com/analytics/web/#/p402519410/realtime/overview?params=_u..nav%3Dmaui&collectionId=app" className='font-bold block py-2 pl-3 pr-4 text-[#FFC26F] rounded bg-transparent md:border-0 md:hover:text-white md:p-0  dark:hover:text-white'>
+          View Analitycs
+        </Navbar.Link>
+        <Navbar.Link href="#" onClick={logout} className='font-bold block py-2 pl-3 pr-4 text-[#FFC26F] rounded bg-transparent md:border-0 md:hover:text-white md:p-0  dark:hover:text-white'>
+          Logout
+        </Navbar.Link>
+      </Navbar.Collapse>
+    </Navbar>
     // <nav className=" border-gray-200 bg-transparent">
     //   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     //     <a className="flex items-center">
@@ -74,7 +80,7 @@ export default function NavbarAdmin() {
     //         <li>
     //           <a
     //             href="/promoAdmin"
-                
+
     //             className="font-bold block py-2 pl-3 pr-4 text-gray-900 rounded bg-transparent md:border-0 md:hover:text-white md:p-0  dark:hover:text-white"
     //           >
     //             Promo
@@ -83,16 +89,16 @@ export default function NavbarAdmin() {
     //         <li>
     //           <a
     //            onClick={logout}
-                
+
     //             className=" cursor-pointer font-bold block py-2 pl-3 pr-4 text-gray-900 rounded bg-transparent md:border-0 md:hover:text-white md:p-0  dark:hover:text-white"
     //           >
     //             Logout
     //           </a>
     //         </li>
-           
-           
+
+
     //       </ul>
-          
+
     //     </div>
     //   </div>
     // </nav>

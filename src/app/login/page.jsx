@@ -42,12 +42,12 @@ export default function Admin() {
   };
   return (
     <>
-      
-      <br/>
+
+      <br />
       <div className="bg-[#3C2A21] md:w-[500px] sm:w-[450px] w-[350px] mx-auto rounded-xl md:mt-20 sm:mt-20 mt-36 mb-20 ">
-      <h1 className="md:text-3xl sm:text-2xl text-xl font-bold text-center pt-10 mb-5 text-white">
-        Login
-      </h1>
+        <h1 className="md:text-3xl sm:text-2xl text-xl font-bold text-center pt-10 mb-5 text-white">
+          Login
+        </h1>
         <div className="pb-20 pl-20 pr-20">
           <form onSubmit={onSubmit} className="">
             <div>
@@ -61,7 +61,7 @@ export default function Admin() {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            
+
             <div>
               <p className="md:text-base text-sm">Password :</p>
               <input
@@ -81,7 +81,7 @@ export default function Admin() {
           </form>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }

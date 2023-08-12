@@ -4,12 +4,15 @@ import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
 import Link from 'next/link'
 import { collection, addDoc, getDocs, where, query, deleteDoc, updateDoc, doc, Firestore, } from "firebase/firestore";
-import { db, storage } from '../../../lib/firebase/page'
+import { db, storage, firebaseAnalytics } from '../../../lib/firebase/page'
 import { useEffect, useState, } from "react";
+import { getAnalytics, logEvent } from "firebase/analytics";
 
 export default function Promosi({ searchParams }) {
   const [data, setData] = useState([])
-
+  useEffect(() => {
+    logEvent(firebaseAnalytics, "Promo Visited");
+  }, [])
   useEffect(() => {
 
 
@@ -50,7 +53,7 @@ export default function Promosi({ searchParams }) {
 
 
       </div>
-     <div className="mb-56"></div>
+      <div className="mb-56"></div>
       <Footer />
     </>
   )

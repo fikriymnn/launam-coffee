@@ -9,7 +9,7 @@ import {
 } from "../../components/canvas/americano";
 import { VietdripCanvas, CoffeeViet } from "../../components/canvas/vietdrip";
 import { collection, addDoc, getDocs, where, query, deleteDoc, updateDoc, doc, Firestore, } from "firebase/firestore";
-import { db, storage } from '../../../lib/firebase/page'
+import { db, storage, firebaseAnalytics } from '../../../lib/firebase/page'
 import {
   CoffeeCepukCanvas,
   CoffeeCepuk,
@@ -20,8 +20,15 @@ import { useEffect, useState, } from "react";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import CardCoffe from "@/components/CardCoffe";
+import { getAnalytics, logEvent } from "firebase/analytics";
 export default function Menu() {
   const [data, setData] = useState([])
+
+
+
+  useEffect(() => {
+    logEvent(firebaseAnalytics, "Menu Visited");
+  }, [])
 
   useEffect(() => {
 
@@ -50,12 +57,12 @@ export default function Menu() {
   return (
     <>
       <Navbar />
-      <blockquote class="md:text-[40px] sm:text-[30px] text-[20px] font-bold text-center text-[#FFC26F] ">
+      <blockquote className="md:text-[40px] sm:text-[30px] text-[20px] font-bold text-center text-[#FFC26F] ">
         <p>Menu Kopi</p>
         <hr className="h-1 w-2/5 md:mb-16 sm:mb-12 mb-6 md:mt-6 sm:mt-4 mt-2 bg-white m-auto item-center border-white" />
       </blockquote>
 
-      <div class="md:text-[20px] sm:text-sm text-xs text-center text-[#FFC26F] font-bold flex mt-10">
+      <div className="md:text-[20px] sm:text-sm text-xs text-center text-[#FFC26F] font-bold flex mt-10">
         <div className="w-5/6 m-auto">
           <p className="text-center m-auto">
             Penyajian Kopi di Kedai Kopi Launam menggunakan teknik Manual

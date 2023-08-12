@@ -14,13 +14,20 @@ import Navbar from '@/components/Navbar';
 import CardCoffe from "@/components/CardCoffe";
 import { AuthContextProvider } from "../components/authService";
 import { collection, addDoc, getDocs, where, query, deleteDoc, updateDoc, doc, Firestore, orderBy, limit } from "firebase/firestore";
-import { db, storage } from '../../lib/firebase/page'
+import { db, storage, firebaseAnalytics } from '../../lib/firebase/page'
+
 import { useEffect, useState, } from "react";
+import { getAnalytics, logEvent } from "firebase/analytics";
 
 
 export default function Home() {
   const [data, setData] = useState([])
   const [data2, setData2] = useState([])
+
+
+  useEffect(() => {
+    logEvent(firebaseAnalytics, "Website Visited");
+  }, [])
 
   useEffect(() => {
 

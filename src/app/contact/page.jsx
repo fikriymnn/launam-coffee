@@ -31,48 +31,48 @@ const Contact = () => {
         <div className="sm:mx-auto sm:pt-9 md:pt-0 pt-5 ">
           <form className=" px-9">
             <a href="https://instagram.com/launam_coffee/">
-            <div class="mb-6 px-6 mx-auto ">
-              <label
-                for="Nama"
-                class="block mb-2  md:text-xl sm:text-lg text-base font-bold text-[#FFC26F] dark:text-white mx-auto "
-              >
-                Instagram
-              </label>
-             <div className="flex ">
-              <Image src={'/assets/instagram.png'} width={45} height={45} alt="l"/>
-              <p  className="ml-5 font-bold md:text-lg sm:text-base text-sm text-[#FFC26F] my-auto">@launamcofee</p>
-             </div>
-            </div>
+              <div class="mb-6 px-6 mx-auto ">
+                <label
+                  for="Nama"
+                  class="block mb-2  md:text-xl sm:text-lg text-base font-bold text-[#FFC26F] dark:text-white mx-auto "
+                >
+                  Instagram
+                </label>
+                <div className="flex ">
+                  <Image src={'/assets/instagram.png'} width={45} height={45} alt="l" />
+                  <p className="ml-5 font-bold md:text-lg sm:text-base text-sm text-[#FFC26F] my-auto">@launamcofee</p>
+                </div>
+              </div>
             </a>
             <a href="mailto:launamcoffee00@gmail.com">
-            <div class="mb-6 px-6 mx-auto">
-              <label
-                for="email"
-                class="block mb-2 md:text-xl sm:text-lg text-base font-bold text-[#FFC26F] dark:text-white"
-              >
-                Email
-              </label>
-              <div className="flex">
-              <Image src={'/assets/email.png'} width={45} height={45} alt="l"/>
-              <p  className="ml-5 font-bold md:text-lg sm:text-base text-sm text-[#FFC26F] my-auto">launamcofee@gmail.com</p>
-             </div>
-            </div>
+              <div class="mb-6 px-6 mx-auto">
+                <label
+                  for="email"
+                  class="block mb-2 md:text-xl sm:text-lg text-base font-bold text-[#FFC26F] dark:text-white"
+                >
+                  Email
+                </label>
+                <div className="flex">
+                  <Image src={'/assets/email.png'} width={45} height={45} alt="l" />
+                  <p className="ml-5 font-bold md:text-lg sm:text-base text-sm text-[#FFC26F] my-auto">launamcofee@gmail.com</p>
+                </div>
+              </div>
             </a>
             <a href="https://wa.me/628117709933?text=Halo Admin, Bagaimana cara order kopi di launam coffee?">
-            <div class="mb-6 px-6 mx-auto">
-              <label
-                for="NoTelp"
-                class="block mb-2  md:text-xl sm:text-lg text-base font-bold text-[#FFC26F] dark:text-white"
-              >
-                WhatsApp
-              </label>
-              <div className="flex">
-              <Image src={'/assets/wa.png'} width={45} height={45} alt="l"/>
-              <p className="ml-5 font-bold md:text-lg sm:text-base text-sm text-[#FFC26F] my-auto">launamcofee@gmail.com</p>
-             </div>
-            </div>
+              <div class="mb-6 px-6 mx-auto">
+                <label
+                  for="NoTelp"
+                  class="block mb-2  md:text-xl sm:text-lg text-base font-bold text-[#FFC26F] dark:text-white"
+                >
+                  WhatsApp
+                </label>
+                <div className="flex">
+                  <Image src={'/assets/wa.png'} width={45} height={45} alt="l" />
+                  <p className="ml-5 font-bold md:text-lg sm:text-base text-sm text-[#FFC26F] my-auto">launamcofee@gmail.com</p>
+                </div>
+              </div>
             </a>
-            
+
 
           </form>
         </div>
