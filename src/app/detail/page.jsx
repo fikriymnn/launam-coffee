@@ -31,7 +31,7 @@ export default function DetailMenu({ searchParams }) {
 
       const querySnapshot = await getDoc(doc(db, "produk", id));
       let data = [];
-      console.log(querySnapshot)
+      console.log(querySnapshot.data())
       if (querySnapshot) {
         console.log("Document data:", querySnapshot.data());
         data.push({ ...querySnapshot.data(), id: querySnapshot.id })

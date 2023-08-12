@@ -17,26 +17,23 @@ export default function DetailPromo({ searchParams }) {
 
     }, [])
     const getData = async (id) => {
-        try {
-
-            const querySnapshot = await getDoc(doc(db, "promo", id));
-
-            let data = [];
-            console.log(querySnapshot)
-            if (querySnapshot) {
-                console.log("Document data:", querySnapshot.data());
-                data.push({ ...querySnapshot.data(), id: querySnapshot.id })
-                setData(data)
-            } else {
-                // docSnap.data() will be undefined in this case
-                console.log("No such document!");
-            }
 
 
+        const querySnapshot = await getDoc(doc(db, "promo", id));
 
-        } catch (error) {
-            alert(error)
+        let data = [];
+        console.log(querySnapshot.data())
+        if (querySnapshot) {
+            console.log("Document data:", querySnapshot.data());
+            data.push({ ...querySnapshot.data(), id: querySnapshot.id })
+            setData(data)
+        } else {
+            // docSnap.data() will be undefined in this case
+            console.log("No such document!");
         }
+
+
+
 
     }
 
@@ -45,7 +42,7 @@ export default function DetailPromo({ searchParams }) {
 
             <Navbar />
             <div className="h-screen">
-                <blockquote class="md:text-[40px] sm:text-[25px] text-[15px] font-bold text-center text-[#FFC26F] ">
+                <blockquote className="md:text-[40px] sm:text-[25px] text-[15px] font-bold text-center text-[#FFC26F] ">
                     <p>Detail Promo</p>
                     <hr className="w-2/5 mb-16 mt-6 bg-white m-auto h-1 item-center border-white" />
                 </blockquote>
