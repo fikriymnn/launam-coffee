@@ -22,7 +22,7 @@ export default function DetailPromo({ searchParams }) {
             const querySnapshot = await getDoc(docRef);
             let data = [];
             console.log(querySnapshot)
-            if (querySnapshot) {
+            if (querySnapshot.data()) {
                 console.log("Document data:", querySnapshot.data());
                 data.push({ ...querySnapshot.data(), id: querySnapshot.id })
             } else {
