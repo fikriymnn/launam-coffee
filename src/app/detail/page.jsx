@@ -51,6 +51,7 @@ export default function DetailMenu({ searchParams }) {
       <div>
         {data && data.map((data, i) => {
           if (data.id == idDockumen) {
+
             return (
 
               <div className="h-screen text-indigo-100" key={i}>

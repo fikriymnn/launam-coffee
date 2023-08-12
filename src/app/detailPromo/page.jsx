@@ -8,6 +8,7 @@ import { useEffect, useState, } from "react";
 
 export default function DetailPromo({ searchParams }) {
     const [data, setData] = useState([])
+    const idDockumen = searchParams.id;
 
     useEffect(() => {
 
@@ -44,7 +45,7 @@ export default function DetailPromo({ searchParams }) {
                 </blockquote>
                 <div>
                     {data && data.map((data, i) => {
-                        if (data.id == searchParams.id) {
+                        if (data.id == idDockumen) {
                             return (
                                 <div className=" md:w-[800px] mx-auto sm:w-[450px] w-[300px] md:p-10 sm:p-8 p-4 bg-[#3C2A21] rounded-xl" key={i}>
                                     <Image src={data.assets} width={800} height={100} alt="promo image" className="mx-auto" />
@@ -57,6 +58,8 @@ export default function DetailPromo({ searchParams }) {
                                     </p>
                                 </div>
                             )
+                        } else {
+                            return;
                         }
 
                     })}
