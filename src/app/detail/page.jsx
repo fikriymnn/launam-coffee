@@ -13,6 +13,7 @@ import { db, storage } from '../../../lib/firebase/page'
 
 
 
+
 export default function DetailMenu({ searchParams }) {
   const [data, setData] = useState([])
 
