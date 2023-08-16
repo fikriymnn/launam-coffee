@@ -10,7 +10,7 @@ import { db, storage } from '../../../lib/firebase/page'
 import { useSearchParams } from 'next/navigation'
 
 const ReactQuill = dynamic(() => import('react-quill'),{ssr:false});
-
+import 'react-quill/dist/quill.snow.css';
 import React from 'react'
 import dynamic from "next/dynamic";
 
