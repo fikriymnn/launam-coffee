@@ -8,8 +8,10 @@ import { collection, addDoc, getDocs, where, query, deleteDoc, updateDoc, doc, F
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { db, storage } from '../../../lib/firebase/page'
 import { useSearchParams } from 'next/navigation'
-
+const ReactQuill = dynamic(() => import('react-quill'),{ssr:false});
+import 'react-quill/dist/quill.snow.css';
 import React from 'react'
+import dynamic from "next/dynamic";
 
 
 
@@ -20,7 +22,7 @@ export default function EditPromo() {
   const [detail, setDetail] = useState(searchParams.get("detail"));
   const [id, setId] = useState(searchParams.get("id"));
   const [loading,setLoading]=useState(false)
-
+  const [value, setValue] = useState('');
 
   const [imageFile, setImageFile] = useState<File>();
   const [downloadURL, setDownloadURL] = useState('')
@@ -97,7 +99,7 @@ export default function EditPromo() {
         }else{
           await updateDoc(todoRef, {
             text: text,
-            detail: detail,
+            detail: value,
             assets: downloadURL
           });
         }
@@ -121,7 +123,9 @@ export default function EditPromo() {
 
   
   return (
-    <>
+    <html lang="en">
+      <body>
+      
       <NavbarAdmin />
       <div className="bg-[#3C2A21] md:w-[500px] sm:w-[500px] w-[370px] mx-auto rounded-xl">
         <h1 className="text-center md:text-3xl sm:text-xl text-lg text-white pt-10 font-bold">Edit Promo</h1>
@@ -144,7 +148,9 @@ export default function EditPromo() {
            
             <label htmlFor="w3review" className="md:text-base sm:text-sm text-xs">Detail :</label>
             <br />
-            <textarea value={detail || ""} required placeholder="masukan detail..." className="text-black my-5 w-64" id="w3review" name="w3review" onChange={(e) => { setDetail(e.target.value) }}></textarea>
+            <br/>
+            
+            <ReactQuill theme="snow" value={value} onChange={setValue}  />
             <br />
             <label htmlFor="file" className="md:text-base sm:text-sm text-xs">Image :</label>
             <br />
@@ -162,6 +168,9 @@ export default function EditPromo() {
       </div>
       <div className="mt-24"></div>
       <Footer />
-    </>
+    
+      </body>
+    </html>
+    
   )
 }

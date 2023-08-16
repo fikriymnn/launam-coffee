@@ -74,7 +74,7 @@ export default function Menu() {
         </div>
       </div>
 
-      <div className="md:mt-20 sm:mt-16 mt-10 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-2 gap-20 px-20">
+      <div className="md:mt-20 sm:mt-16 mt-10 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-2 gap-20 px-10">
         {data.length > 0 && data.map((data, i) => {
 
           // eslint-disable-next-line react/jsx-key
