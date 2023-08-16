@@ -8,7 +8,8 @@ import { collection, addDoc, getDocs, where, query, deleteDoc, updateDoc, doc, F
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { db, storage } from '../../../lib/firebase/page'
 
-
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import React from 'react'
 
 
@@ -78,7 +79,7 @@ export default function TambahPromo() {
       alert('File size to large')
     }
   }
-
+  const [value,setValue] = useState('')
  
 
 
@@ -87,7 +88,7 @@ export default function TambahPromo() {
     e.preventDefault()
     const docRef = await addDoc(collection(db, "promo"), {
       text: text,
-      detail: detail,
+      detail: value,
       assets: downloadURL
     })
 
@@ -118,7 +119,8 @@ export default function TambahPromo() {
            
             <label htmlFor="w3review" className="md:text-base sm:text-sm text-xs">Detail :</label>
             <br />
-            <textarea required placeholder="masukan detail..." className="text-black my-5 w-64" id="w3review" name="w3review" onChange={(e) => { setDetail(e.target.value) }}></textarea>
+            <br/>
+            <ReactQuill theme="snow" value={value} onChange={setValue}  />
             <br />
             <label htmlFor="file">Image :</label>
             <br />

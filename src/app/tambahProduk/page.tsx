@@ -14,6 +14,8 @@ import { useEffect, useContext } from "react";
 import ProtectedRoute from "../../components/auth";
 
 
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 
 import React from 'react'
@@ -124,14 +126,14 @@ export default function TambahProduk() {
 
   // }
 
-
+  const [value, setValue] = useState('');
   const addData = async (e: any) => {
 
     e.preventDefault()
     const docRef = await addDoc(collection(db, "produk"), {
       namaProd: nama,
       harga: harga,
-      detail: detail,
+      detail: value,
       assets: downloadURL
     })
 
@@ -175,7 +177,9 @@ export default function TambahProduk() {
             </div>
             <label htmlFor="w3review" className="md:text-base sm:text-sm text-xs">Detail :</label>
             <br />
-            <textarea required placeholder="masukan detail..." className="text-black my-5 w-64" id="w3review" name="w3review" onChange={(e) => { setDetail(e.target.value) }}></textarea>
+            <br/>
+            <ReactQuill theme="snow" value={value} onChange={setValue}  />
+            
             <br />
             <label htmlFor="file" className="md:text-base sm:text-sm text-xs">File 3D :</label>
             <br />

@@ -10,7 +10,7 @@ import { StarsCanvas, Stars } from "../../components/canvas/beans";
 import Navbar from "@/components/Navbar";
 import { collection, addDoc, getDocs, where, query, deleteDoc, updateDoc, doc, Firestore, documentId, getDoc } from "firebase/firestore";
 import { db, storage } from '../../../lib/firebase/page'
-
+import parse from 'html-react-parser';
 
 
 
@@ -65,7 +65,7 @@ export default function DetailMenu({ searchParams }) {
                       {data.harga}
                     </h2>
                     <p className="md:text-base sm:text-sm text-xs text-center mt-10 text-[#FFC26F]">
-                      {data.detail}
+                      {parse(data.detail)}
                     </p>
                   </div>
                   <div className="sm:h-1/2 h-3/4 md:h-full md:w-1/2 sm:w-3/4 w-3/4">
