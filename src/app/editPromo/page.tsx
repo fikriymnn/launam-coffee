@@ -146,7 +146,10 @@ export default function EditPromo() {
             <label htmlFor="w3review" className="md:text-base sm:text-sm text-xs">Detail :</label>
             <br />
             <br/>
-            <ReactQuill theme="snow" value={value} onChange={setValue}  />
+            {
+            typeof window !== 'undefined'?<ReactQuill theme="snow" value={value} onChange={setValue} />:false
+}
+           
             <br />
             <label htmlFor="file" className="md:text-base sm:text-sm text-xs">Image :</label>
             <br />
