@@ -122,7 +122,9 @@ export default function EditPromo() {
 
   
   return (
-    <>
+    <html lang="en">
+      <body>
+      
       <NavbarAdmin />
       <div className="bg-[#3C2A21] md:w-[500px] sm:w-[500px] w-[370px] mx-auto rounded-xl">
         <h1 className="text-center md:text-3xl sm:text-xl text-lg text-white pt-10 font-bold">Edit Promo</h1>
@@ -146,10 +148,8 @@ export default function EditPromo() {
             <label htmlFor="w3review" className="md:text-base sm:text-sm text-xs">Detail :</label>
             <br />
             <br/>
-            {
-            typeof window !== 'undefined'?<ReactQuill theme="snow" value={value} onChange={setValue} />:false
-}
-           
+            
+            <ReactQuill theme="snow" value={value} onChange={setValue}  />
             <br />
             <label htmlFor="file" className="md:text-base sm:text-sm text-xs">Image :</label>
             <br />
@@ -167,6 +167,9 @@ export default function EditPromo() {
       </div>
       <div className="mt-24"></div>
       <Footer />
-    </>
+    
+      </body>
+    </html>
+    
   )
 }
