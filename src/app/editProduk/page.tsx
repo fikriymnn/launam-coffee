@@ -10,7 +10,7 @@ import { db, storage } from '../../../lib/firebase/page'
 import { useSearchParams } from 'next/navigation'
 
 import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+
 import React from 'react'
 
 
