@@ -5,7 +5,7 @@ import Image from "next/image";
 import { collection, addDoc, getDocs, where, query, deleteDoc, updateDoc, doc, Firestore, documentId, getDoc } from "firebase/firestore";
 import { db, storage } from '../../../lib/firebase/page'
 import { useEffect, useState, } from "react";
-
+import parse from 'html-react-parser';
 export default function DetailPromo({ searchParams }) {
     const [data, setData] = useState([])
     const idDockumen = searchParams.id;
@@ -54,7 +54,7 @@ export default function DetailPromo({ searchParams }) {
                                             {data.text}
                                         </p>
 
-                                        {data.detail}
+                                        {parse(data.detail)}
                                     </p>
                                 </div>
                             )
