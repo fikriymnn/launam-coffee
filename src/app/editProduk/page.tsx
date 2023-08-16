@@ -103,7 +103,7 @@ export default function EditProduk() {
           await updateDoc(todoRef, {
             namaProd: nama,
             harga: harga,
-            detail: value,
+            detail: detail,
             assets: downloadURL
           });
         }
@@ -164,7 +164,7 @@ export default function EditProduk() {
             <label htmlFor="w3review" className="md:text-base sm:text-sm text-xs">Detail :</label>
             <br />
             <br/>
-            <ReactQuill theme="snow" value={value} onChange={setValue}  />
+            <ReactQuill theme="snow" value={detail || ""} onChange={setDetail}  />
             <br />
             <label htmlFor="file" className="md:text-base sm:text-sm text-xs">File 3D :</label>
             <br />

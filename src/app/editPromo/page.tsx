@@ -99,7 +99,7 @@ export default function EditPromo() {
         }else{
           await updateDoc(todoRef, {
             text: text,
-            detail: value,
+            detail: detail,
             assets: downloadURL
           });
         }
@@ -150,7 +150,7 @@ export default function EditPromo() {
             <br />
             <br/>
             
-            <ReactQuill theme="snow" value={value} onChange={setValue}  />
+            <ReactQuill theme="snow" value={detail || ""} onChange={setDetail}  />
             <br />
             <label htmlFor="file" className="md:text-base sm:text-sm text-xs">Image :</label>
             <br />
