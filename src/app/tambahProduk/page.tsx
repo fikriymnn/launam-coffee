@@ -14,11 +14,12 @@ import { useEffect, useContext } from "react";
 import ProtectedRoute from "../../components/auth";
 
 
-import ReactQuill from 'react-quill';
+const ReactQuill = dynamic(() => import('react-quill'),{ssr:false});
 
 
 
-import React from 'react'
+ import React from 'react'
+import dynamic from "next/dynamic";
 
 
 

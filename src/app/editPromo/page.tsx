@@ -8,9 +8,10 @@ import { collection, addDoc, getDocs, where, query, deleteDoc, updateDoc, doc, F
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { db, storage } from '../../../lib/firebase/page'
 import { useSearchParams } from 'next/navigation'
-import ReactQuill from 'react-quill';
+const ReactQuill = dynamic(() => import('react-quill'),{ssr:false});
 
 import React from 'react'
+import dynamic from "next/dynamic";
 
 
 
