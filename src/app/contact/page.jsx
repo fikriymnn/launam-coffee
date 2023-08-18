@@ -68,7 +68,7 @@ const Contact = () => {
                 </label>
                 <div className="flex">
                   <Image src={'/assets/wa.png'} width={45} height={45} alt="l" />
-                  <p className="ml-5 font-bold md:text-lg sm:text-base text-sm text-[#FFC26F] my-auto">launamcofee@gmail.com</p>
+                  <p className="ml-5 font-bold md:text-lg sm:text-base text-sm text-[#FFC26F] my-auto">Hubungi kami di WhatsApp</p>
                 </div>
               </div>
             </a>
