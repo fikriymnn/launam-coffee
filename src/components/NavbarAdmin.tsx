@@ -42,7 +42,7 @@ export default function NavbarAdmin() {
       <Navbar.Collapse>
 
         <Navbar.Link href="/produkAdmin" className='font-bold block py-2 pl-3 pr-4 text-[#FFC26F] rounded bg-transparent md:border-0 md:hover:text-white md:p-0  dark:hover:text-white'>
-          Produk
+          Menu
         </Navbar.Link>
         <Navbar.Link href="/promoAdmin" className='font-bold block py-2 pl-3 pr-4 text-[#FFC26F] rounded bg-transparent md:border-0 md:hover:text-white md:p-0  dark:hover:text-white'>
           Promo
