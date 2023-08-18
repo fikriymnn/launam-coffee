@@ -64,7 +64,7 @@ export default function Navbarr() {
         href="/promosi" className='font-bold block py-2 pl-3 pr-4 text-[#FFC26F] rounded bg-transparent md:border-0 md:hover:text-white md:p-0  dark:hover:text-white'
       >
         <p>
-          Promosi
+          Promo
         </p>
       </Navbar.Link>
       <Navbar.Link href="/menu" className='font-bold block py-2 pl-3 pr-4 text-[#FFC26F] rounded bg-transparent md:border-0 md:hover:text-white md:p-0  dark:hover:text-white'>
