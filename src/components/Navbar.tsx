@@ -38,46 +38,46 @@ export default function Navbarr() {
     //   </div>
     // </nav >
     <>
-     <Navbar
-    fluid
-    rounded
-    className="border-gray-200 bg-transparent"
-  >
-    <Navbar.Brand                                                                                                                                                                 
-      
-      href="/"
-    >
-      <Image src="/assets/logo1.png" width={50} height={50} className="mr-3" alt="Logo" />
-     
-    </Navbar.Brand>
-    <Navbar.Toggle />
-    <Navbar.Collapse>
-      <Navbar.Link
-   
-        href="/" className='font-bold block py-2 pl-3 pr-4 text-[#FFC26F] rounded bg-transparent md:border-0 md:hover:text-white md:p-0  dark:hover:text-white'
+      <Navbar
+        fluid
+        rounded
+        className="border-gray-200 bg-transparent"
       >
-        <p>
-          Home
-        </p>
-      </Navbar.Link>
-      <Navbar.Link
-        href="/promosi" className='font-bold block py-2 pl-3 pr-4 text-[#FFC26F] rounded bg-transparent md:border-0 md:hover:text-white md:p-0  dark:hover:text-white'
-      >
-        <p>
-          Promo
-        </p>
-      </Navbar.Link>
-      <Navbar.Link href="/menu" className='font-bold block py-2 pl-3 pr-4 text-[#FFC26F] rounded bg-transparent md:border-0 md:hover:text-white md:p-0  dark:hover:text-white'>
-        Menu
-      </Navbar.Link>
-      <Navbar.Link href="/about" className='font-bold block py-2 pl-3 pr-4 text-[#FFC26F] rounded bg-transparent md:border-0 md:hover:text-white md:p-0  dark:hover:text-white'>
-        Tentang Kami
-      </Navbar.Link>
-      <Navbar.Link href="/contact" className='font-bold block py-2 pl-3 pr-4 text-[#FFC26F] rounded bg-transparent md:border-0 md:hover:text-white md:p-0  dark:hover:text-white'>
-        Contact
-      </Navbar.Link>
-    </Navbar.Collapse>
-  </Navbar>
+        <Navbar.Brand
+
+          href="/"
+        >
+          <Image src="/assets/logo1.png" width={50} height={50} className="mr-3" alt="Logo" />
+
+        </Navbar.Brand>
+        <Navbar.Toggle />
+        <Navbar.Collapse>
+          <Navbar.Link
+
+            href="/" className='font-bold block py-2 pl-3 pr-4 text-[#FFC26F] rounded bg-transparent md:border-0 md:hover:text-white md:p-0  dark:hover:text-white'
+          >
+            <p>
+              Home
+            </p>
+          </Navbar.Link>
+          <Navbar.Link
+            href="/promosi" className='font-bold block py-2 pl-3 pr-4 text-[#FFC26F] rounded bg-transparent md:border-0 md:hover:text-white md:p-0  dark:hover:text-white'
+          >
+            <p>
+              Promo
+            </p>
+          </Navbar.Link>
+          <Navbar.Link href="/menu" className='font-bold block py-2 pl-3 pr-4 text-[#FFC26F] rounded bg-transparent md:border-0 md:hover:text-white md:p-0  dark:hover:text-white'>
+            Menu
+          </Navbar.Link>
+          <Navbar.Link href="/about" className='font-bold block py-2 pl-3 pr-4 text-[#FFC26F] rounded bg-transparent md:border-0 md:hover:text-white md:p-0  dark:hover:text-white'>
+            Tentang Kami
+          </Navbar.Link>
+          <Navbar.Link href="/contact" className='font-bold block py-2 pl-3 pr-4 text-[#FFC26F] rounded bg-transparent md:border-0 md:hover:text-white md:p-0  dark:hover:text-white'>
+            Contact
+          </Navbar.Link>
+        </Navbar.Collapse>
+      </Navbar>
     </>
   )
 }
