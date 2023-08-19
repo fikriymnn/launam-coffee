@@ -14,11 +14,11 @@ import { useEffect, useContext } from "react";
 import ProtectedRoute from "../../components/auth";
 
 
-const ReactQuill = dynamic(() => import('react-quill'),{ssr:false});
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 import 'react-quill/dist/quill.snow.css';
 
 
- import React from 'react'
+import React from 'react'
 import dynamic from "next/dynamic";
 
 
@@ -144,14 +144,14 @@ export default function TambahProduk() {
   };
   return (
     <>
-   
+
       <NavbarAdmin />
       <div className="bg-[#3C2A21] md:w-[500px] sm:w-[500px] w-[370px] mx-auto rounded-xl">
-        <h1 className="text-center md:text-3xl sm:text-xl text-lg text-white pt-10 font-bold">Tambah Produk</h1>
+        <h1 className="text-center md:text-3xl sm:text-xl text-lg text-white pt-10 font-bold">Tambah Menu</h1>
         <div className="p-10 md:p-20 sm:p-20">
           <form onSubmit={(e) => addData(e)} encType="multipart/form-data">
             <div>
-              <label htmlFor="username" className="md:text-base sm:text-sm text-xs">Nama Produk : </label>
+              <label htmlFor="username" className="md:text-base sm:text-sm text-xs">Nama Menu : </label>
               <br />
               <input
                 required
@@ -178,9 +178,9 @@ export default function TambahProduk() {
             </div>
             <label htmlFor="w3review" className="md:text-base sm:text-sm text-xs">Detail :</label>
             <br />
-            <br/>
-            <ReactQuill theme="snow" value={value} onChange={setValue}  />
-            
+            <br />
+            <ReactQuill theme="snow" value={value} onChange={setValue} />
+
             <br />
             <label htmlFor="file" className="md:text-base sm:text-sm text-xs">File 3D :</label>
             <br />
@@ -191,7 +191,7 @@ export default function TambahProduk() {
             <input id="file" name="file" type="file" required onChange={(files) => handleSelectedFile(files.target)} />
             <div className="flex items-center mt-3">
               <button type="submit" className="bg-neutral-400 px-4 py-2 rounded-lg mx-auto mt-6 hover:bg-neutral-600 md:text-base sm:text-sm text-xs"  >
-                Tambah Produk
+                Tambah Menu
               </button>
             </div>
           </form>
@@ -199,7 +199,7 @@ export default function TambahProduk() {
       </div>
       <div className="mt-24"></div>
       <Footer />
-     
+
     </>
   )
 }
