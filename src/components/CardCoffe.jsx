@@ -5,7 +5,6 @@ import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
-
 const Object = ({ src }) => {
   const coffee = useGLTF(src);
 
@@ -13,26 +12,52 @@ const Object = ({ src }) => {
 };
 
 export default function CardCoffee({ obj, nama, harga, detail, id, key }) {
-
   return (
     <>
-      <motion.div>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        variants={{
+          visible: { opacity: 1, y: -50 },
+          hidden: { opacity: 0, y: 0 },
+        }}
+      >
         <Tilt
           options={{
             max: 45,
             scale: 1,
             speed: 450,
           }}
-
           key={key}
           className="md:p-5 sm:p-4 p-3  rounded-2xl sm:w-[200px] md:w-full w-[120px]  bg-[#3C2A21]"
         >
-          <div className="">
-            <h3 className="text-[#ffdcd2] font-bold md:text-[21px] sm:text-[16px] text-[10px]">{nama}</h3>
-
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 5 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.5,
+              ease: "easeInOut",
+              delay: 1.95,
+            }}
+            className=""
+          >
+            <h3 className="text-[#ffdcd2] font-bold md:text-[21px] sm:text-[16px] text-[10px]">
+              {nama}
+            </h3>
+          </motion.div>
           <div className="md:mt-5 sm:mt-[10px] mb-[5px]"></div>
-          <div className="bg-[#d6a764] w-full  md:mb-5 sm:mb-[10px] mb-[5px] rounded-lg pt-5 md:h-56 sm:h-28 h-16 ">
+          <motion.div
+            initial={{ opacity: 0, y: 5 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 1.0,
+              ease: "easeInOut",
+              delay: 2.25,
+            }}
+            className="bg-[#d6a764] w-full  md:mb-5 sm:mb-[10px] mb-[5px] rounded-lg pt-5 md:h-56 sm:h-28 h-16 "
+          >
             <Canvas
               shadows
               frameloop="demand"
@@ -59,19 +84,29 @@ export default function CardCoffee({ obj, nama, harga, detail, id, key }) {
                 <Preload all />
               </Suspense>
             </Canvas>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-3">
-
+          <motion.div
+            initial={{ opacity: 0, y: 5 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.5,
+              ease: "easeInOut",
+              delay: 2.5,
+            }}
+            className="grid grid-cols-3"
+          >
             <p className="text-white md:my-5 sm:my-3 my-2 font-bold sm:text-base md:text-xl text-[7px]">
               {harga}
             </p>
             <div></div>
-            <a href={`/detail?id=${id}`} className="text-[#884A39] font-medium rounded-lg md:text-sm sm:text-[15px] text-[6px] m-auto md:px-5 md:py-2 sm:py-[5px] sm:px-[10px] py-[2px] px-[5px] bg-white hover:bg-slate-400 ">Detail</a>
-
-
-          </div>
-
+            <a
+              href={`/detail?id=${id}`}
+              className="text-[#884A39] font-medium rounded-lg md:text-sm sm:text-[15px] text-[6px] m-auto md:px-5 md:py-2 sm:py-[5px] sm:px-[10px] py-[2px] px-[5px] bg-white hover:bg-slate-400 "
+            >
+              Detail
+            </a>
+          </motion.div>
         </Tilt>
       </motion.div>
     </>

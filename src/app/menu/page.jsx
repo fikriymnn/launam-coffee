@@ -8,61 +8,92 @@ import {
   CoffeeAmericano,
 } from "../../components/canvas/americano";
 import { VietdripCanvas, CoffeeViet } from "../../components/canvas/vietdrip";
-import { collection, addDoc, getDocs, where, query, deleteDoc, updateDoc, doc, Firestore, } from "firebase/firestore";
-import { db, storage, firebaseAnalytics } from '../../../lib/firebase/page'
+import {
+  collection,
+  addDoc,
+  getDocs,
+  where,
+  query,
+  deleteDoc,
+  updateDoc,
+  doc,
+  Firestore,
+} from "firebase/firestore";
+import { db, storage, firebaseAnalytics } from "../../../lib/firebase/page";
 import {
   CoffeeCepukCanvas,
   CoffeeCepuk,
 } from "../../components/canvas/coffee_cepuk";
 
 import { fadeIn, textVariant } from "../../utils/motion";
-import { useEffect, useState, } from "react";
+import { useEffect, useState } from "react";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import CardCoffe from "@/components/CardCoffe";
 import { getAnalytics, logEvent } from "firebase/analytics";
 export default function Menu() {
-  const [data, setData] = useState([])
-
-
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     logEvent(firebaseAnalytics, "Menu Visited");
-  }, [])
+  }, []);
 
   useEffect(() => {
-
-
-    getData()
-
-
-  }, [data.length])
+    getData();
+  }, [data.length]);
   const getData = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, "produk"));
       let data = [];
-      console.log(querySnapshot)
+      console.log(querySnapshot);
       querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
         console.log(doc.id, " => ", doc.data());
-        data.push({ ...doc.data(), id: doc.id })
+        data.push({ ...doc.data(), id: doc.id });
       });
-      setData(data)
+      setData(data);
     } catch (error) {
-      alert(error)
+      alert(error);
     }
-
-  }
+  };
 
   return (
     <>
       <Navbar />
       <blockquote className="md:text-[40px] sm:text-[30px] text-[20px] font-bold text-center text-[#FFC26F] ">
-        <p>Menu Kopi</p>
-        <hr className="h-1 w-2/5 md:mb-16 sm:mb-12 mb-6 md:mt-6 sm:mt-4 mt-2 bg-white m-auto item-center border-white" />
+        <motion.p
+          initial={{ opacity: 0, y: 5 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.3,
+            ease: "easeInOut",
+            delay: 0.6,
+          }}
+        >
+          Menu Kopi
+        </motion.p>
+        <motion.hr
+          initial={{ opacity: 0, x: 5 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            duration: 0.3,
+            ease: "easeInOut",
+            delay: 1.0,
+          }}
+          className="h-1 w-2/5 md:mb-16 sm:mb-12 mb-6 md:mt-6 sm:mt-4 mt-2 bg-white m-auto item-center border-white"
+        />
       </blockquote>
 
-      <div className="md:text-[20px] sm:text-sm text-xs text-center text-[#FFC26F] font-bold flex mt-10">
+      <motion.div
+        initial={{ opacity: 0, y: 5 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.3,
+          ease: "easeInOut",
+          delay: 1.5,
+        }}
+        className="md:text-[20px] sm:text-sm text-xs text-center text-[#FFC26F] font-bold flex mt-10"
+      >
         <div className="w-5/6 m-auto">
           <p className="text-center m-auto">
             Penyajian Kopi di Kedai Kopi Launam menggunakan teknik Manual
@@ -72,19 +103,24 @@ export default function Menu() {
             air panas di tingkat temperatur tertentu
           </p>
         </div>
-      </div>
+      </motion.div>
 
       <div className="md:mt-20 sm:mt-16 mt-10 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-2 gap-20 px-10">
-        {data.length > 0 && data.map((data, i) => {
-
-          // eslint-disable-next-line react/jsx-key
-          return (<CardCoffe obj={data.assets} nama={data.namaProd} harga={data.harga} detail={data.detail} key={i} id={data.id} doc />
-
-          )
-        })}
-
-
-
+        {data.length > 0 &&
+          data.map((data, i) => {
+            // eslint-disable-next-line react/jsx-key
+            return (
+              <CardCoffe
+                obj={data.assets}
+                nama={data.namaProd}
+                harga={data.harga}
+                detail={data.detail}
+                key={i}
+                id={data.id}
+                doc
+              />
+            );
+          })}
       </div>
       <br />
       <br />
@@ -93,6 +129,4 @@ export default function Menu() {
       <Footer />
     </>
   );
-};
-
-
+}
