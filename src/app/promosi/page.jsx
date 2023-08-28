@@ -47,10 +47,38 @@ export default function Promosi({ searchParams }) {
     <>
       <Navbar />
       <blockquote className="md:text-[40px] sm:text-[30px] text-[20px] font-bold text-center text-[#FFC26F] ">
-        <p>Promo</p>
-        <hr className="h-1 w-2/5 md:mb-24 sm:mb-20 mb-16 md:mt-6 sm:mt-4 mt-2 bg-white m-auto item-center border-white" />
+        <motion.p
+          initial={{ opacity: 0, y: 5 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.3,
+            ease: "easeInOut",
+            delay: 0.6,
+          }}
+        >
+          Promo
+        </motion.p>
+        <motion.hr
+          initial={{ opacity: 0, x: 5 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            duration: 0.3,
+            ease: "easeInOut",
+            delay: 1.0,
+          }}
+          className="h-1 w-2/5 md:mb-24 sm:mb-20 mb-16 md:mt-6 sm:mt-4 mt-2 bg-white m-auto item-center border-white"
+        />
       </blockquote>
-      <motion.div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-2 justify-items-center">
+      <motion.div
+        initial={{ opacity: 0, y: 5 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.3,
+          ease: "easeInOut",
+          delay: 1.6,
+        }}
+        className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-2 justify-items-center"
+      >
         {data.map((v, i) => {
           return (
             <CardPromo
