@@ -11,6 +11,7 @@ const About = () => {
         <p>Tentang Kami</p>
         <hr className="h-1 w-2/5 md:mb-16 sm:mb-12 mb-10 md:mt-6 sm:mt-4 mt-2 bg-white m-auto item-center border-white" />
       </blockquote>
+      
 
       <div className="grid md:grid-cols-2 sm:grid-cols-2 grid-cols-1 items-center justify-items-center mb-36">
         <Image
