@@ -32,6 +32,7 @@ const About = () => {
           className="h-1 w-2/5 md:mb-16 sm:mb-12 mb-10 md:mt-6 sm:mt-4 mt-2 bg-white m-auto item-center border-white"
         />
       </blockquote>
+      
 
       <motion.div
         initial={{ opacity: 0, y: 5 }}
